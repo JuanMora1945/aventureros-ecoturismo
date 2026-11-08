@@ -1,0 +1,1648 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aventureros Ecoturismo | Escapa del ruido · Viajes desde Cali</title>
+<meta name="description" content="Escapa del ruido y conéctate con la naturaleza: viajes ecológicos en grupo desde Cali a cascadas, ríos, playas y desiertos de Colombia. RNT 120530.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Aventureros Ecoturismo">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:site_name" content="Aventureros Ecoturismo">
+<meta property="og:title" content="Aventureros Ecoturismo | Escapa del ruido y conéctate con la naturaleza">
+<meta property="og:description" content="Rutas ecológicas en grupo desde Cali por los destinos más bellos de Colombia, con guías expertos.">
+<meta property="og:image" content="https://aventureros-ecoturismo.netlify.app/img/web/macarena.jpg">
+<meta property="og:url" content="https://aventureros-ecoturismo.netlify.app/">
+<meta property="og:image:alt" content="Caño Cristales, La Macarena, Meta">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="img/web/macarena.jpg" fetchpriority="high">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"TravelAgency","name":"Aventureros Ecoturismo","slogan":"Escapa del ruido y conéctate con la naturaleza","description":"Agencia de ecoturismo de Cali que organiza viajes en grupo a destinos naturales de Colombia, con transporte, guías e ingresos incluidos.","image":"img/web/macarena.jpg","logo":"img/brand/logo-original.png","telephone":"+57 322 621 3728","address":{"@type":"PostalAddress","addressLocality":"Cali","addressRegion":"Valle del Cauca","addressCountry":"CO"},"areaServed":"Colombia","identifier":{"@type":"PropertyValue","name":"Registro Nacional de Turismo","value":"120530"},"sameAs":["https://www.instagram.com/aventureros_ecoturismo/","https://www.facebook.com/aventurerosecoturismo","https://www.threads.net/@aventureros_ecoturismo"]}
+</script>
+<meta name="theme-color" content="#fe2f30">
+<link rel="icon" href="img/brand/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("av-theme");document.documentElement.dataset.theme=t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}</script>
+<style>
+:root{
+  --brand:#fe2f30; --red:#e01b1f; --red-d:#c4161a; --red-soft:#ffe7e7;
+  --forest:#0e2f27; --jungle:#17483b; --leaf:#2f7d5b; --mint:#e4f1ea;
+  --sun:#f6b73c; --sand:#f7f5ef;
+  --ink:#10221d; --muted:#55665f; --line:#e3e8e5; --surface:#fff; --tint:#17483b; --hdr:rgba(255,255,255,.96);
+  --radius:20px;
+  --shadow:0 18px 50px -18px rgba(14,47,39,.35);
+  --shadow-s:0 6px 20px -8px rgba(14,47,39,.25);
+  --ease:cubic-bezier(.22,.8,.24,1);
+  --gut:clamp(16px,4vw,40px);
+  --wrap:min(1240px, 100% - 2*var(--gut));
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --text:"DM Sans",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--text);font-size:17px;line-height:1.6;color:var(--ink);background:var(--sand);overflow-x:hidden;overflow-x:clip}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.05;letter-spacing:-.02em}
+p{margin:0}
+.wrap{width:var(--wrap);margin-inline:auto}
+.ico{width:1.25em;height:1.25em;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ico.fill{fill:currentColor;stroke:none}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+dialog:focus,dialog:focus-visible,.m-wrap:focus-visible{outline:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55em;min-height:52px;padding:0 1.5em;border-radius:999px;border:0;cursor:pointer;font-weight:700;font-size:16px;text-decoration:none;transition:transform .3s var(--ease),background-color .3s var(--ease),box-shadow .3s var(--ease),color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px -10px rgba(215,38,46,.7)}
+.btn-red:hover{background:var(--red-d);box-shadow:0 14px 30px -10px rgba(215,38,46,.8)}
+.btn-white{background:#fff;color:var(--forest)}
+.btn-white:hover{background:var(--mint)}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(6px)}
+.btn-ghost:hover{background:rgba(255,255,255,.26)}
+.btn-green{background:#1f9d55;color:#fff}
+.btn-green:hover{background:#178246}
+.btn .ico{transition:transform .3s var(--ease)}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* Header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background-color .4s var(--ease),box-shadow .4s,color .4s;color:#fff}
+.hdr.solid{background:var(--hdr);color:var(--ink);box-shadow:0 4px 24px -12px rgba(14,47,39,.3);backdrop-filter:blur(10px)}
+.hdr-in{width:var(--wrap);margin-inline:auto;display:flex;align-items:center;gap:24px;height:78px;transition:height .4s var(--ease)}
+.hdr.solid .hdr-in{height:66px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto}
+.logo{color:#fff}
+.hdr.solid .logo{color:var(--brand)}
+.logo-mark,.logo-word,.mk{display:block;background:currentColor;-webkit-mask:var(--m) center/contain no-repeat;mask:var(--m) center/contain no-repeat}
+.logo-mark{--m:url(img/brand/logo-mark.png);width:36px;height:45px;transition:transform .5s var(--ease)}
+.logo-word{--m:url(img/brand/logo-word.png);width:140px;height:19px}
+.logo:hover .logo-mark{transform:translateY(-3px)}
+.mk{--m:url(img/brand/logo-mark.png)}
+.logo-tile{width:132px;height:132px;border-radius:22px;display:block;margin-bottom:18px;box-shadow:var(--shadow-s)}
+.nav{display:flex;gap:4px}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;padding:8px 14px;border-radius:999px;transition:background-color .25s}
+.nav a:hover{background:rgba(255,255,255,.18)}
+.hdr.solid .nav a:hover{background:var(--mint)}
+.hdr-soc{display:flex;gap:4px}
+.hdr-soc a{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;transition:background-color .25s,transform .25s}
+.hdr-soc a:hover{background:rgba(255,255,255,.18);transform:translateY(-2px)}
+.hdr.solid .hdr-soc a:hover{background:var(--mint)}
+.hdr .btn{min-height:44px;font-size:15px;padding:0 1.15em}
+.burger{display:none;width:44px;height:44px;border-radius:12px;border:0;background:rgba(255,255,255,.18);cursor:pointer;place-items:center}
+.hdr.solid .burger{background:var(--mint)}
+
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--forest)}
+.hero-slides{position:absolute;inset:0}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity 1.6s var(--ease),transform 9s linear}
+.hero-slides img.on{opacity:1;transform:scale(1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,26,21,.55) 0%,rgba(8,26,21,.15) 35%,rgba(8,26,21,.4) 60%,rgba(8,26,21,.92) 100%);pointer-events:none}
+.hero-box{position:relative;z-index:2;width:100%}
+.hero-in{width:var(--wrap);margin-inline:auto;padding:140px 0 48px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);font-size:14px;font-weight:500;border:1px solid rgba(255,255,255,.28)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(74,222,128,.7)}70%{box-shadow:0 0 0 10px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.hero h1{font-size:clamp(44px,6vw,86px);font-weight:800;letter-spacing:-.035em;line-height:.95;margin:22px 0}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero-lead{font-size:clamp(17px,1.5vw,20px);max-width:38ch;opacity:.95}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero-card{background:rgba(255,255,255,.12);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.25);border-radius:var(--radius);padding:22px}
+.hero-card h2{font-size:15px;font-family:var(--text);font-weight:700;letter-spacing:.02em;margin-bottom:14px;opacity:.9}
+.cats-quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cats-quick a{display:flex;align-items:center;gap:10px;padding:12px;border-radius:14px;background:rgba(255,255,255,.12);text-decoration:none;font-weight:500;font-size:15px;transition:background-color .25s,transform .25s}
+.cats-quick a:hover{background:rgba(255,255,255,.28);transform:translateY(-2px)}
+.cats-quick .ico{width:22px;height:22px;color:var(--sun)}
+.hero-foot{width:var(--wrap);margin-inline:auto}
+.hero-meta{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0 26px;border-top:1px solid rgba(255,255,255,.2);font-size:14.5px}
+.hero-meta ul{display:flex;flex-wrap:wrap;gap:8px 26px;list-style:none;margin:0;padding:0}
+.hero-meta li{display:flex;align-items:center;gap:8px}
+.hero-meta .ico{color:var(--sun)}
+.slide-ctl{display:flex;align-items:center;gap:12px}
+.slide-name{font-weight:500;min-width:170px;text-align:right;display:inline-flex;gap:6px;align-items:center;justify-content:flex-end}
+.slide-name .ico{color:var(--sun)}
+.bars{display:flex;gap:6px}
+.bars button{width:28px;height:14px;border:0;background:none;cursor:pointer;padding:5px 0;position:relative}
+.bars button::before{content:"";position:absolute;inset:5px 0;border-radius:4px;background:rgba(255,255,255,.35)}
+.bars button.on::after{content:"";position:absolute;inset:5px 0;border-radius:4px;background:var(--surface);transform-origin:left;animation:bar 6s linear forwards}
+@keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+
+
+
+/* Hero: entrada suave */
+.hero h1.kt{font-size:clamp(46px,7vw,104px);line-height:.98;margin:22px 0}
+.kt span.kt-l1,.kt span.kt-l2{display:block}
+.kt-l2{font-size:.6em;color:var(--sun);letter-spacing:-.03em;margin-top:.12em}
+.kt .w{display:inline-block}
+.kt .w > span{display:inline-block;opacity:0;transform:translateY(14px);animation:tin .9s var(--ease) forwards;animation-delay:calc(var(--d) * 70ms + 200ms)}
+.t-in{opacity:0;transform:translateY(14px);animation:tin .9s var(--ease) forwards;animation-delay:calc(var(--d) * 70ms + 200ms)}
+@keyframes tin{to{opacity:1;transform:none}}
+.slide-name #slideName{display:inline-block;animation:tin .6s var(--ease)}
+@media (max-width:760px){.hero h1.kt{font-size:clamp(40px,11.5vw,58px)}}
+@media (prefers-reduced-motion:reduce){.kt .w>span,.t-in{transform:none;opacity:1;animation:none}}
+/* Marquee */
+.marquee{background:var(--brand);color:#fff;overflow:hidden;padding:16px 0;font-family:var(--display);font-weight:700;font-size:clamp(18px,2vw,24px)}
+.marquee-track{display:flex;width:max-content;animation:scroll 50s linear infinite}
+.marquee span{display:inline-flex;align-items:center;gap:28px;padding-right:28px;white-space:nowrap}
+.marquee .mk{width:16px;height:20px;color:#fff;opacity:.85}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{scroll-margin-top:70px}
+.sec{padding:clamp(80px,10vw,130px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+.kicker{display:inline-flex;align-items:center;gap:8px;color:var(--red);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px}
+.kicker .ico{width:18px;height:18px}
+.sec h2{font-size:clamp(34px,4.6vw,60px);font-weight:800;letter-spacing:-.03em}
+.sec-head p{max-width:46ch;color:var(--muted);font-size:18px}
+
+/* Stats */
+.stats{background:var(--surface)}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:40px 0}
+.stat{display:flex;align-items:center;gap:16px}
+.stat-ico{width:58px;height:58px;border-radius:16px;background:var(--mint);color:var(--tint);display:grid;place-items:center;flex:none}
+.stat-ico .ico{width:28px;height:28px}
+.stat b{font-family:var(--display);font-size:34px;line-height:1;display:block;letter-spacing:-.02em}
+.stat div > span{color:var(--muted);font-size:15px;line-height:1.3;display:block;margin-top:4px}
+
+/* Filters */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);cursor:pointer;font-weight:500;font-size:15px;transition:all .3s var(--ease)}
+.chip .ico{width:18px;height:18px;color:var(--leaf);transition:color .3s}
+.chip small{font-size:12.5px;background:var(--mint);color:var(--tint);padding:2px 8px;border-radius:999px;font-weight:700;transition:all .3s}
+.chip:hover{border-color:var(--leaf);transform:translateY(-2px)}
+.chip[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:#fff}
+.chip[aria-pressed="true"] .ico{color:var(--sun)}
+.chip[aria-pressed="true"] small{background:rgba(255,255,255,.16);color:#fff}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.card{background:var(--surface);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-s);cursor:pointer;text-align:left;border:0;padding:0;width:100%;transition:transform .45s var(--ease),box-shadow .45s var(--ease),opacity .8s var(--ease)}
+.card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.card.hide{display:none}
+.card.enter{animation:cardIn .55s var(--ease) both;animation-delay:calc(var(--i,0)*55ms)}
+@keyframes cardIn{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.card-media{position:relative;aspect-ratio:4/3.4;overflow:hidden;background:var(--jungle)}
+.card-media img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.card:hover .card-media img{transform:scale(1.08)}
+.card-media::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(8,26,21,.6))}
+.badge{position:absolute;top:14px;left:14px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.95);color:var(--forest);font-size:13px;font-weight:700}
+.badge .ico{width:15px;height:15px;color:var(--red)}
+.price-tag{position:absolute;right:14px;bottom:14px;z-index:2;background:var(--red);color:#fff;font-weight:700;font-size:14px;padding:7px 12px;border-radius:999px}
+.region{position:absolute;left:16px;bottom:14px;z-index:2;color:#fff;display:flex;align-items:center;gap:6px;font-size:14px;font-weight:500}
+.region .ico{width:16px;height:16px}
+.card-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:23px;font-weight:700;margin-bottom:8px}
+.card-body p{color:var(--muted);font-size:15.5px;line-height:1.5}
+.card-meta{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 18px}
+.card-meta span{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;padding:5px 10px;border-radius:8px;background:var(--sand);color:var(--tint);font-weight:500}
+.card-meta .ico{width:15px;height:15px}
+.card-cta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;font-weight:700;color:var(--red);padding-top:16px;border-top:1px solid var(--line)}
+.card-cta .go{width:40px;height:40px;border-radius:50%;background:var(--red-soft);display:grid;place-items:center;transition:background-color .3s,color .3s,transform .3s var(--ease)}
+.card:hover .card-cta .go{background:var(--red);color:#fff;transform:rotate(-45deg)}
+.link-soft{color:var(--red);font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.link-soft:hover{color:var(--red-d)}
+.dest-note{margin-top:38px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center;color:var(--muted);text-align:center}
+
+/* Included bento */
+.inc{background:var(--forest);color:#fff}
+.inc .kicker{color:var(--sun)}
+.inc .sec-head p{color:#b9d3c8}
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(210px,auto);gap:18px}
+.tile{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:26px;display:flex;flex-direction:column;gap:12px;transition:background-color .35s,transform .35s var(--ease),opacity .8s var(--ease)}
+.tile:hover{background:rgba(255,255,255,.1);transform:translateY(-4px)}
+.tile-ico{width:54px;height:54px;border-radius:16px;background:var(--red);display:grid;place-items:center;transition:transform .4s var(--ease)}
+.tile:hover .tile-ico{transform:rotate(-8deg) scale(1.06)}
+.tile-ico .ico{width:26px;height:26px}
+.tile h3{font-size:22px;font-weight:700;margin-top:6px}
+.tile p{color:#c9ddd4;font-size:15.5px;line-height:1.5}
+.tile.photo{padding:0;overflow:hidden;position:relative;border:0;min-height:240px}
+.tile.photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform 1.2s var(--ease)}
+.tile.photo:hover img{transform:scale(1.06)}
+.tile.photo .cap{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(255,255,255,.95);color:var(--forest);border-radius:14px;padding:14px 16px;font-weight:500;font-size:15px;display:flex;gap:10px;align-items:center}
+.tile.photo .cap .ico{color:var(--red)}
+.tile.wide{grid-column:span 2}
+
+/* Steps */
+.road{position:relative;height:56px;margin:0 0 26px}
+.road::before{content:"";position:absolute;left:0;right:0;top:27px;height:3px;background:repeating-linear-gradient(90deg,#c9d8d1 0 14px,transparent 14px 24px)}
+.road-fill{position:absolute;left:0;top:26px;height:5px;width:100%;border-radius:5px;background:linear-gradient(90deg,var(--leaf),var(--red));transform:scaleX(0);transform-origin:left;transition:transform 2.4s var(--ease) .3s}
+.road-stop{position:absolute;top:14px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:var(--surface);border:3px solid #c9d8d1;display:grid;place-items:center;font:700 13px/1 var(--text);color:var(--muted);transition:all .4s var(--ease)}
+.road-stop.s1{left:12.5%}.road-stop.s2{left:37.5%}.road-stop.s3{left:62.5%}.road-stop.s4{left:87.5%}
+.road-bus{position:absolute;top:0;left:3%;width:54px;height:54px;margin-left:-27px;border-radius:16px;background:var(--red);color:#fff;display:grid;place-items:center;box-shadow:0 12px 26px -10px rgba(224,27,31,.8);transition:left 2.4s var(--ease) .3s;z-index:2}
+.road-bus .ico{width:28px;height:28px}
+.road.in .road-fill{transform:scaleX(.875)}
+.road.in .road-bus{left:87.5%}
+.road.in .road-stop{border-color:var(--leaf);background:var(--leaf);color:#fff}
+.road.in .road-stop.s1{transition-delay:.5s}.road.in .road-stop.s2{transition-delay:1.1s}.road.in .road-stop.s3{transition-delay:1.7s}.road.in .road-stop.s4{transition-delay:2.3s}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;list-style:none;margin:0;padding:0}
+.step{position:relative;overflow:hidden;border-radius:24px;background:var(--surface);padding:26px 24px 24px;box-shadow:var(--shadow-s);display:flex;flex-direction:column;min-height:380px;transition:transform .45s var(--ease),box-shadow .45s var(--ease),opacity .8s var(--ease)}
+.js .step.rv.in:hover,.step:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.step-num{position:absolute;right:18px;top:6px;font:800 92px/1 var(--display);letter-spacing:-.06em;color:var(--mint);pointer-events:none;transition:transform .6s var(--ease)}
+.step:hover .step-num{transform:translateY(8px) rotate(-4deg)}
+.step-top{position:relative;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.step-ico{width:60px;height:60px;border-radius:18px;background:var(--red);color:#fff;display:grid;place-items:center;transition:transform .45s var(--ease)}
+.step:hover .step-ico{transform:rotate(-8deg) scale(1.08)}
+.step-ico .ico{width:28px;height:28px}
+.step-tag{display:none;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--leaf);background:var(--mint);padding:6px 10px;border-radius:999px;position:relative}
+.step h3{position:relative;font-size:24px;margin-bottom:8px}
+.step p{position:relative;color:var(--muted);font-size:15.5px;line-height:1.5}
+.step-extra{position:relative;margin-top:auto;padding-top:20px}
+.mini-dests{display:flex}
+.mini-dests img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:3px solid #fff;margin-left:-10px;box-shadow:0 4px 10px -4px rgba(0,0,0,.3)}
+.mini-dests img:first-child{margin-left:0}
+.mini-dests span{margin-left:-10px;width:46px;height:46px;border-radius:50%;background:var(--forest);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;border:3px solid #fff}
+.chat{display:grid;gap:6px;font-size:13.5px;line-height:1.35}
+.chat span{padding:8px 11px;border-radius:12px;max-width:88%}
+.chat .me{background:#dcf8c6;color:#16302a;justify-self:end;border-bottom-right-radius:4px}
+.chat .them{background:var(--sand);color:var(--ink);border-bottom-left-radius:4px}
+.typing{display:inline-flex;gap:4px;align-items:center}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:dot 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.meter{height:10px;border-radius:10px;background:var(--mint);overflow:hidden;margin-bottom:10px}
+.meter i{display:block;height:100%;width:30%;border-radius:10px;background:linear-gradient(90deg,var(--sun),var(--red));transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease) .8s}
+.step.in .meter i{transform:scaleX(1)}
+.meter-lbl{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--tint);margin-bottom:10px}
+.step .pay{margin-top:0}
+.step.final{background:var(--forest);color:#fff;box-shadow:var(--shadow)}
+.step.final > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.step.final:hover > img{transform:scale(1.07)}
+.step.final::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,26,21,.25) 0%,rgba(8,26,21,.55) 45%,rgba(8,26,21,.92) 100%)}
+.step.final > *:not(img){z-index:2}
+.step.final .step-num{color:rgba(255,255,255,.18);z-index:1}
+.step.final .step-tag{display:none;background:rgba(255,255,255,.18);color:#fff}
+.step.final .step-ico{background:var(--sun);color:var(--forest)}
+.step.final p{color:#e3eee9}
+.final-note{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.14);backdrop-filter:blur(6px);padding:12px 14px;border-radius:14px;font-weight:500;color:#fff!important}
+.final-note .ico{color:var(--sun);width:20px;height:20px}
+.step.final .btn{width:100%;margin-top:4px;white-space:nowrap;padding:0 1em;font-size:15px}
+.steps-cta{margin-top:30px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;color:var(--muted);text-align:center}
+/* Trust */
+.trust-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.rnt-card{background:linear-gradient(140deg,var(--jungle),var(--forest));color:#fff;border-radius:var(--radius);padding:36px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:340px}
+.rnt-card .seal{width:64px;height:64px;border-radius:18px;background:rgba(255,255,255,.12);display:grid;place-items:center;color:var(--sun)}
+.rnt-card .seal .ico{width:32px;height:32px}
+.rnt-card b{font-family:var(--display);font-size:clamp(50px,6vw,78px);line-height:1;letter-spacing:-.03em;display:block;margin-top:20px}
+.rnt-card h3{font-size:26px;margin-bottom:8px}
+.rnt-card p{color:#c9ddd4;max-width:38ch}
+.rnt-card .mtn{position:absolute;right:-20px;bottom:-40px;width:220px;height:275px;color:rgba(255,255,255,.07)}
+.rnt-head{display:flex;align-items:center;gap:18px;position:relative}
+.rnt-head small{display:block;color:#b9d3c8;font-size:14px;font-weight:500;letter-spacing:.02em}
+.rnt-card .rnt-head b{margin-top:2px;font-size:clamp(40px,4.4vw,58px)}
+.rnt-body{position:relative}
+.rnt-list{list-style:none;padding:0;margin:16px 0 22px;display:grid;gap:10px}
+.rnt-list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.4;color:#e6f1ec}
+.rnt-list .ico{color:var(--sun);width:20px;height:20px;margin-top:1px}
+.rnt-cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.rnt-cta span{color:#cfe2d9;font-size:15px}
+.rnt-cta b{font-family:var(--text);font-size:15px;display:inline;margin:0;color:#fff}
+.rnt-card .rnt-tip{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:14px;color:#b9d3c8}
+.trust-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.t-item{background:var(--surface);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-s);transition:transform .35s var(--ease),opacity .8s var(--ease)}
+.t-item:hover{transform:translateY(-4px)}
+.t-item > .ico{width:30px;height:30px;color:var(--leaf);margin-bottom:12px}
+.t-item h3{font-size:19px;margin-bottom:6px}
+.t-item p{color:var(--muted);font-size:15px;line-height:1.5}
+.pay{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;padding:0;list-style:none}
+.pay li{background:var(--mint);color:var(--tint);padding:4px 10px;border-radius:999px;font-size:13px;font-weight:500}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.g-item{aspect-ratio:1;margin:0;border-radius:16px;overflow:hidden;position:relative;cursor:zoom-in;display:block;width:100%;border:0;padding:0;background:var(--jungle)}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.g-item:hover img{transform:scale(1.06)}
+.g-item span{position:absolute;left:12px;bottom:12px;z-index:2;color:#fff;font-weight:700;font-size:14px;display:flex;gap:6px;align-items:center;opacity:0;transform:translateY(8px);transition:all .4s var(--ease)}
+.g-item::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(8,26,21,.65));opacity:0;transition:opacity .4s}
+.g-item:hover span,.g-item:focus-visible span{opacity:1;transform:none}
+.g-item:hover::after,.g-item:focus-visible::after{opacity:1}
+.ig-cta{display:flex;justify-content:center;margin-top:30px}
+
+/* Contact / planner */
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:stretch}
+.contact-card{display:flex;flex-direction:column}
+.contact-card .host{margin-top:18px}
+.ig-strip{margin-top:auto;padding-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-decoration:none;position:relative}
+.ig-strip img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;transition:transform .5s var(--ease)}
+.ig-strip:hover img{transform:scale(1.04)}
+.ig-strip span{grid-column:1/-1;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--muted)}
+.ig-strip span .ico{color:var(--red)}
+.plan{display:flex;flex-direction:column}
+.plan .send-row{margin-top:auto}
+.contact-grid > *,.trust-grid > *{min-width:0}
+.contact-card{background:var(--surface);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-s)}
+.contact-card h3{font-size:24px;margin-bottom:6px}
+.contact-card > p{color:var(--muted);margin-bottom:18px}
+.c-line{display:flex;align-items:center;gap:14px;padding:14px;border-radius:14px;text-decoration:none;transition:background-color .25s,transform .25s}
+.c-line:hover{background:var(--sand);transform:translateX(4px)}
+.c-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;flex:none;color:#fff}
+.c-line b{display:block;font-size:18px;font-variant-numeric:tabular-nums;line-height:1.3}
+.c-line small{color:var(--muted);font-size:14px}
+.host{display:flex;gap:16px;align-items:center;margin-top:18px;padding:18px;border-radius:16px;background:var(--mint)}
+.host img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 40%;flex:none;border:3px solid #fff}
+.host p{font-size:15px;line-height:1.45;color:var(--tint)}
+.plan{background:var(--forest);color:#fff;border-radius:var(--radius);padding:clamp(26px,3vw,40px)}
+.plan h3{font-size:clamp(26px,2.4vw,32px);margin-bottom:6px}
+.plan > p{color:#b9d3c8;margin-bottom:24px}
+.plan > p.preview{color:#12261f;margin:0 0 22px}
+.plan > p.preview-lbl{color:#e6f1ec;margin-bottom:8px}
+.field{display:grid;gap:8px;margin-bottom:18px}
+.field label,.field .lbl{font-weight:700;font-size:14px;color:#dbe9e2}
+.field select{font:inherit;color:var(--ink);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%2310221d' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center;border:2px solid transparent;border-radius:14px;min-height:54px;padding:0 44px 0 16px;width:100%;appearance:none;transition:border-color .2s}
+.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--sun);outline:none}
+.field input,.field textarea{font:inherit;color:var(--ink);background:#fff;border:2px solid transparent;border-radius:14px;min-height:54px;padding:12px 16px;width:100%;transition:border-color .2s}
+.field textarea{min-height:76px;resize:vertical;line-height:1.45}
+.send-row{display:flex;gap:10px;flex-wrap:wrap}
+.send-row .btn{flex:1 1 220px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stepper{display:grid;grid-template-columns:54px 1fr 54px;background:#fff;color:var(--ink);border-radius:14px;overflow:hidden}
+.stepper button{border:0;background:transparent;font-size:24px;font-weight:700;cursor:pointer;min-height:54px;transition:background-color .2s,color .2s}
+.stepper button:hover{background:var(--red);color:#fff}
+.stepper output{display:grid;place-items:center;font-weight:700;font-size:18px}
+.preview-lbl{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:#dbe9e2;margin-bottom:8px}
+.preview{margin:0 0 22px;padding:16px 18px;background:#dcf8c6;color:#16302a;border-radius:4px 16px 16px 16px;font-size:15px;line-height:1.5;white-space:pre-line}
+
+
+/* Community */
+.comm{position:relative;overflow:hidden;background:var(--red);color:#fff;border-radius:28px;padding:clamp(40px,6vw,80px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.comm h2{font-size:clamp(34px,4.6vw,58px);font-weight:800;letter-spacing:-.03em}
+.comm p{font-size:19px;margin-top:16px;max-width:40ch;opacity:.95}
+.comm .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.comm .kicker{color:#fff}
+.comm-photos{position:relative;height:340px}
+.comm-photos img{position:absolute;width:64%;aspect-ratio:4/3;object-fit:cover;border-radius:18px;border:5px solid #fff;box-shadow:var(--shadow);transition:transform .6s var(--ease)}
+.comm-photos img:nth-child(1){left:0;top:40px;transform:rotate(-6deg)}
+.comm-photos img:nth-child(2){right:0;top:150px;transform:rotate(5deg)}
+.comm:hover .comm-photos img:nth-child(1){transform:rotate(-10deg) translateX(-8px)}
+.comm:hover .comm-photos img:nth-child(2){transform:rotate(9deg) translateX(8px)}
+.comm .bigmtn{position:absolute;left:-50px;bottom:-90px;width:300px;height:375px;color:rgba(255,255,255,.1)}
+
+/* Footer */
+.foot{background:var(--forest);color:#dbe9e2;margin-top:clamp(80px,10vw,130px);padding:70px 0 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.foot .logo{color:#fff;margin-bottom:18px;display:inline-flex;gap:10px}
+.foot-logo .logo-mark{width:30px;height:37px;color:var(--brand)}
+.foot-logo .logo-word{width:128px;height:17px}
+.foot p{font-size:15px;line-height:1.55;color:#b9d3c8;max-width:34ch}
+.foot h4,.foot .foot-h{font-family:var(--text);font-size:15px;font-weight:700;color:#fff;margin-bottom:14px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px}
+.foot ul a{text-decoration:none;transition:color .2s}
+.foot ul a:hover{color:var(--sun)}
+.soc{display:flex;gap:10px;margin-top:18px}
+.soc a{width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:background-color .25s,transform .25s}
+.soc a:hover{background:var(--red);transform:translateY(-3px)}
+.credits{margin-top:18px;font-size:13px;color:#9fbcb0}.credits summary{cursor:pointer;font-weight:500}.credits ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:4px}.credits a{color:#cfe2d9}
+.foot-bottom{margin-top:48px;padding:22px 90px 0 0;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:#9fbcb0}
+
+/* WhatsApp FAB */
+.fab{position:fixed;right:22px;bottom:80px;z-index:60;display:flex;align-items:center;gap:10px;text-decoration:none}
+.fab-btn{width:62px;height:62px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(37,211,102,.7);position:relative;transition:transform .3s var(--ease)}
+.fab-btn::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:ring 2.4s var(--ease) infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.fab-btn svg{width:32px;height:32px;fill:currentColor}
+.fab:hover .fab-btn{transform:scale(1.08) rotate(-6deg)}
+.fab-tip{background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:14px 14px 4px 14px;box-shadow:var(--shadow-s);font-weight:500;font-size:14.5px;opacity:0;transform:translateX(10px);transition:all .35s var(--ease);pointer-events:none;white-space:nowrap}
+.fab:hover .fab-tip,.fab.hello .fab-tip{opacity:1;transform:none}
+
+
+/* Globe */
+.globe-sec{background:radial-gradient(120% 90% at 30% 0%,#17483b 0%,#0b241e 55%,#071712 100%);color:#fff;overflow:hidden}
+.globe-sec .kicker{color:var(--sun)}
+.globe-sec .sec-head p{color:#b9d3c8}
+.globe-grid{display:grid;grid-template-columns:1.6fr .9fr;gap:28px;align-items:stretch}
+.globe-wrap{position:relative;border-radius:28px;overflow:hidden;background:#04110d url(img/globe/night-sky.png) center/cover;min-height:600px;border:1px solid rgba(255,255,255,.08)}
+#globe{position:absolute;inset:0;cursor:grab}
+#globe:active{cursor:grabbing}
+.globe-hint{position:absolute;left:18px;top:18px;z-index:3;display:flex;gap:8px;flex-wrap:wrap;pointer-events:none}
+.globe-hint span{display:inline-flex;align-items:center;gap:6px;background:rgba(7,23,18,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:500}
+.globe-hint .ico{width:15px;height:15px;color:var(--sun)}
+.globe-ctl{position:absolute;right:18px;bottom:18px;z-index:3;display:grid;gap:8px}
+.globe-ctl button{width:46px;height:46px;border-radius:14px;border:1px solid rgba(255,255,255,.18);background:rgba(7,23,18,.75);color:#fff;font-size:22px;font-weight:700;cursor:pointer;backdrop-filter:blur(8px);transition:background-color .25s,transform .25s}
+.globe-ctl button:hover{background:var(--red);transform:scale(1.06)}
+.globe-legend{position:absolute;left:18px;bottom:18px;z-index:3;display:flex;gap:14px;flex-wrap:wrap;background:rgba(7,23,18,.72);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);padding:9px 14px;border-radius:14px;font-size:13px}
+.globe-legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.gl-label{transform:translate(-50%,-100%);pointer-events:auto;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
+.gl-label .tag{background:#fff;color:var(--forest);font:700 12.5px/1.2 var(--text);padding:5px 10px;border-radius:999px;white-space:nowrap;box-shadow:0 6px 18px -6px rgba(0,0,0,.5);opacity:0;transform:translateY(6px) scale(.9);transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.gl-label.home .tag{background:var(--red);color:#fff}
+.gl-label .stem{width:2px;height:10px;background:var(--surface);opacity:0;transition:opacity .35s}
+.globe-wrap.near .gl-label .tag,.globe-wrap.near .gl-label .stem,.gl-label:hover .tag,.gl-label:hover .stem,.gl-label.focus .tag,.gl-label.focus .stem{opacity:1;transform:none}
+.globe-wrap.mid .gl-label.home .tag,.globe-wrap.mid .gl-label.home .stem{opacity:1;transform:none}
+.globe-wrap .gl-label.clash .tag,.globe-wrap .gl-label.clash .stem{opacity:0!important}
+.globe-wrap .gl-label.clash:hover .tag,.globe-wrap .gl-label.clash:hover .stem{opacity:1!important}
+.globe-side{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:24px;display:flex;flex-direction:column;min-height:0;max-height:600px}
+.globe-side h3{font-size:22px;margin-bottom:4px}
+.globe-side > p{color:#b9d3c8;font-size:14.5px;margin-bottom:16px}
+.place-list{overflow-y:auto;display:grid;gap:4px;padding-right:6px;margin:0;list-style:none;padding-left:0;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.place-list .grp{font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sun);margin:12px 0 4px}
+.place-list .grp:first-child{margin-top:0}
+.place-btn{width:100%;display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;border:0;background:transparent;color:#fff;text-align:left;cursor:pointer;transition:background-color .25s,transform .25s}
+.place-btn:hover,.place-btn.on{background:rgba(255,255,255,.1);transform:translateX(4px)}
+.place-btn img{width:42px;height:42px;border-radius:12px;object-fit:cover;flex:none}
+.place-btn b{display:block;font-size:15px;line-height:1.25}
+.place-btn small{color:#b9d3c8;font-size:13px}
+.place-btn .ico{margin-left:auto;width:18px;height:18px;color:var(--sun);opacity:.7}
+.globe-fallback{position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:30px;color:#cfe2d9}
+.globe-wrap.nogl .globe-fallback{display:grid}
+@media (max-width:1100px){.globe-grid{grid-template-columns:1fr}.globe-side{max-height:420px}}
+@media (max-width:760px){.globe-wrap{min-height:440px;border-radius:22px}.globe-legend{display:none}.globe-hint span:nth-child(2){display:none}.globe-side{border-radius:22px;padding:18px}}
+
+
+/* Flat map (Leaflet) */
+.globe-wrap{background:#dfe9e4}
+#globe{cursor:grab;z-index:1}
+.leaflet-container{font-family:var(--text);background:#dfe9e4}
+.leaflet-control-attribution{font-size:10.5px;background:rgba(255,255,255,.85)!important}
+.map-zones{position:absolute;left:16px;top:16px;z-index:500;display:flex;gap:6px;flex-wrap:wrap}
+.map-zones button{border:0;cursor:pointer;background:#fff;color:var(--forest);font:700 13px/1 var(--text);padding:10px 14px;border-radius:999px;box-shadow:0 6px 18px -8px rgba(0,0,0,.35);transition:all .25s var(--ease)}
+.map-zones button:hover{transform:translateY(-2px)}
+.map-zones button.on{background:var(--forest);color:#fff}
+.globe-ctl,.globe-legend{z-index:500}
+.globe-legend{background:rgba(255,255,255,.95);color:var(--ink);border-color:transparent;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.globe-ctl button{background:#fff;color:var(--forest);border:0;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+.globe-ctl button:hover{background:var(--red);color:#fff}
+.pin{position:relative;width:0;height:0}
+.pin-dot{position:absolute;left:-17px;top:-17px;width:34px;height:34px;border-radius:50%;background:var(--surface);border:3px solid var(--red);display:grid;place-items:center;color:var(--red);box-shadow:0 6px 16px -4px rgba(0,0,0,.45);transition:transform .3s var(--ease),background-color .3s,color .3s}
+.pin-dot .ico{width:17px;height:17px}
+.pin-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid var(--red);opacity:0;animation:pinPulse 2.6s var(--ease) infinite}
+@keyframes pinPulse{0%{transform:scale(1);opacity:.35}100%{transform:scale(2);opacity:0}}
+.pin.home .pin-dot{left:-22px;top:-22px;width:44px;height:44px;background:var(--brand);border-color:#fff;color:#fff}
+.pin.home .pin-dot .mk{width:20px;height:25px;color:#fff}
+.pin.home .pin-dot::after{border-color:var(--brand)}
+.pin-label{position:absolute;left:22px;top:-14px;white-space:nowrap;background:var(--forest);color:#fff;font:700 13px/1 var(--text);padding:7px 11px;border-radius:999px;box-shadow:0 6px 16px -6px rgba(0,0,0,.5);transition:opacity .25s,transform .25s var(--ease);pointer-events:auto}
+.pin.home .pin-label{left:28px;top:-15px;background:var(--red)}
+.pin.left .pin-label{left:auto;right:22px}
+.pin.clash .pin-label{opacity:0;transform:scale(.9);pointer-events:none}
+.leaflet-marker-icon:hover,.leaflet-marker-icon.active{z-index:9999!important}
+.leaflet-marker-icon:hover .pin-dot,.leaflet-marker-icon.active .pin-dot{transform:scale(1.18);background:var(--red);color:#fff}
+.leaflet-marker-icon:hover .pin-label,.leaflet-marker-icon.active .pin-label{opacity:1!important;transform:none!important;background:var(--red)}
+.route{stroke-dasharray:2 9;animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-22}}
+.map-pop .leaflet-popup-content-wrapper{border-radius:18px;padding:0;overflow:hidden;box-shadow:0 20px 50px -20px rgba(0,0,0,.6)}
+.map-pop .leaflet-popup-content{margin:0;width:250px!important}
+.map-pop img{width:100%;height:130px;object-fit:cover;display:block}
+.map-pop .pc{padding:12px 14px 14px}
+.map-pop b{display:block;font:700 17px/1.15 var(--display);color:var(--ink)}
+.map-pop small{display:block;color:var(--muted);font-size:13px;margin:3px 0 10px}
+.map-pop button{width:100%;border:0;cursor:pointer;background:var(--red);color:#fff;font:700 14px/1 var(--text);padding:11px;border-radius:999px}
+.map-pop button:hover{background:var(--red-d)}
+@media (prefers-reduced-motion:reduce){.route,.pin-dot::after{animation:none}}
+@media (max-width:760px){.map-zones{right:16px}.map-zones button{padding:9px 12px;font-size:12.5px}}
+
+/* Modal */
+dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100%;height:100%;color:inherit;overflow:auto}
+dialog::backdrop{background:rgba(8,26,21,.72);backdrop-filter:blur(6px)}
+dialog[open]{animation:fade .3s var(--ease)}
+dialog[open] .modal,dialog[open] .lb-in{animation:pop .45s var(--ease)}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes pop{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+.m-wrap{min-height:100%;display:grid;place-items:center;padding:24px}
+.modal{width:min(1080px,100%);max-height:calc(100svh - 48px);background:var(--surface);border-radius:26px;overflow:hidden;display:grid;grid-template-columns:1.05fr 1fr;box-shadow:0 40px 100px -30px rgba(0,0,0,.6)}
+.m-media{position:relative;background:var(--forest);min-height:540px}
+.m-media > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:fade .5s var(--ease)}
+.m-thumbs{position:absolute;left:16px;bottom:16px;display:flex;gap:8px;z-index:2}
+.m-thumbs button{width:58px;height:58px;border-radius:12px;overflow:hidden;border:2px solid rgba(255,255,255,.5);padding:0;cursor:pointer;opacity:.75;transition:all .25s}
+.m-thumbs button.on,.m-thumbs button:hover{opacity:1;border-color:#fff;transform:translateY(-3px)}
+.m-thumbs img{width:100%;height:100%;object-fit:cover}
+.m-nav{position:absolute;top:16px;left:16px;right:16px;display:flex;justify-content:space-between;z-index:2;pointer-events:none}
+.m-nav button{pointer-events:auto;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.92);cursor:pointer;display:grid;place-items:center;transition:transform .25s}
+.m-nav button:hover{transform:scale(1.1)}
+.m-body{padding:34px 34px 28px;overflow-y:auto;display:flex;flex-direction:column}
+.m-top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px}
+.m-cat{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--mint);color:var(--tint);font-weight:700;font-size:13px}
+.m-cat .ico{width:15px;height:15px}
+.m-close{width:44px;height:44px;border-radius:50%;border:0;background:var(--sand);cursor:pointer;display:grid;place-items:center;transition:background-color .25s,transform .3s var(--ease)}
+.m-close:hover{background:var(--red);color:#fff;transform:rotate(90deg)}
+.m-body .m-title{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em}
+.m-region{display:flex;align-items:center;gap:6px;color:var(--muted);margin:8px 0 16px}
+.m-region .ico{color:var(--red);width:18px;height:18px}
+.m-desc{color:var(--ink);font-size:16.5px}
+.m-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}
+.m-facts div{background:var(--sand);border-radius:14px;padding:12px 14px}
+.m-facts .ico{color:var(--red);width:20px;height:20px;margin-bottom:6px}
+.m-facts small{display:block;color:var(--muted);font-size:12.5px}
+.m-facts b{font-size:15px;line-height:1.25;display:block}
+.m-body .m-sub{font-family:var(--text);font-size:15px;font-weight:700;margin:4px 0 10px}
+.m-list{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px}
+.m-list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;line-height:1.4}
+.m-list .ico{color:var(--leaf);width:20px;height:20px;margin-top:1px}
+.m-list.hl .ico{color:var(--red)}
+.m-note{font-size:13.5px;color:var(--muted);margin-bottom:18px}
+.m-actions{margin-top:auto;display:flex;gap:10px;flex-wrap:wrap}
+.m-actions .btn{flex:1 1 200px}
+.lb .m-wrap{padding:16px}
+.lb-in{position:relative;max-width:min(560px,100%)}
+.lb img{max-height:calc(100svh - 120px);width:auto;border-radius:18px;margin:0 auto}
+.lb p{color:#fff;text-align:center;margin-top:12px;font-weight:500}
+.lb .m-close{position:absolute;top:-14px;right:-14px;background:#fff;z-index:2}
+
+
+/* Modal compact fit */
+.m-wrap{padding:20px}
+.modal{height:min(640px,calc(100svh - 40px));max-height:calc(100svh - 40px);margin:auto}
+.m-media{min-height:0;height:100%}
+.m-body{min-height:0;padding:24px 28px 22px;overflow-y:auto;overscroll-behavior:contain}
+.m-top{margin-bottom:10px}
+.m-body .m-title{font-size:clamp(24px,2.2vw,30px);line-height:1.1}
+.m-region{margin:6px 0 10px;font-size:14.5px}
+.m-desc{font-size:15px;line-height:1.5}
+.m-facts{margin:14px 0;gap:8px}
+.m-facts div{padding:9px 11px;border-radius:12px}
+.m-facts .ico{width:17px;height:17px;margin-bottom:3px}
+.m-facts small{font-size:12px}
+.m-facts b{font-size:14px}
+.m-body .m-sub{font-size:14px;margin:2px 0 7px}
+.m-list{gap:5px;margin-bottom:12px}
+.m-list li{font-size:14px;line-height:1.35}
+.m-list .ico{width:17px;height:17px}
+.m-note{font-size:12.5px;margin-bottom:12px}
+.m-actions .btn{min-height:46px;font-size:15px}
+.m-close{width:40px;height:40px}
+.modal{height:min(700px,calc(100svh - 40px))}
+.m-body{padding:20px 26px 18px}
+.m-facts{margin:12px 0}
+.m-list{gap:4px;margin-bottom:10px}
+.m-note{margin-bottom:10px}
+.m-actions{flex-wrap:nowrap}
+.m-actions .btn{white-space:nowrap;min-height:44px;padding:0 1.1em;flex:0 0 auto}
+.m-actions #m-wa{flex:1 1 auto}
+@media (max-width:760px){
+  .m-wrap{padding:0}
+  .modal{height:auto;max-height:94svh;margin:0}
+  .m-media{height:260px}
+  .m-body{overflow:visible;padding:20px 18px 24px}
+}
+
+
+/* Modal media: video + carousel */
+.m-media{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);overflow:hidden;background:#071712;min-height:0;height:100%}
+.modal{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.m-media,.m-body{min-width:0}
+.m-stage{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.m-stage > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:fade .5s var(--ease)}
+.m-video{position:absolute;inset:0}
+.m-video iframe{width:100%;height:100%;border:0;display:block}
+.m-video:empty{display:none}
+.m-stage .m-nav{top:auto;bottom:12px}
+.m-stage .m-nav button{width:38px;height:38px}
+.m-vcap{display:flex;align-items:center;gap:8px;color:#b9d3c8;font-size:12.5px;padding:10px 16px 0;line-height:1.3;min-height:24px}
+.m-vcap .ico{width:15px;height:15px;color:var(--sun);flex:none}
+.m-vcap b{color:#fff;font-weight:500}
+.m-strip-wrap{position:relative;min-height:0;padding:12px 0 14px}
+.m-strip{height:100%;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 16px;scrollbar-width:none;scroll-behavior:smooth}
+.m-strip::-webkit-scrollbar{display:none}
+.m-shot{flex:none;height:100%;aspect-ratio:3/4;border-radius:14px;overflow:hidden;border:0;padding:0;cursor:zoom-in;scroll-snap-align:start;position:relative;background:#0e2f27}
+.m-shot img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.m-shot:hover img{transform:scale(1.07)}
+.m-shot span{position:absolute;left:8px;bottom:8px;font-size:11.5px;font-weight:700;color:#fff;background:rgba(7,23,18,.7);padding:3px 8px;border-radius:999px}
+.m-sbtn{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);display:grid;place-items:center;cursor:pointer;z-index:2;transition:transform .25s,opacity .25s}
+.m-sbtn:hover{transform:translateY(-50%) scale(1.08)}
+.m-sbtn.l{left:8px}.m-sbtn.r{right:8px}
+.m-sbtn[disabled]{opacity:0;pointer-events:none}
+@media (max-width:760px){
+  .m-media{height:auto;grid-template-rows:auto auto 170px}
+  .modal{grid-template-columns:minmax(0,1fr)}
+}
+
+.m-tools{display:flex;align-items:center;gap:8px}
+.m-tools .m-nav{position:static;display:flex;gap:6px;pointer-events:auto}
+.m-tools .m-nav button{width:40px;height:40px;background:var(--sand);box-shadow:none}
+.m-tools .m-nav button:hover{background:var(--mint);transform:none}
+/* Reveal */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:calc(var(--i,0)*90ms)}
+.js .rv.in{opacity:1;transform:none}
+.js .card.rv.in:hover{transform:translateY(-8px)}
+.js .tile.rv.in:hover,.js .t-item.rv.in:hover{transform:translateY(-4px)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .js .rv{opacity:1;transform:none}
+  .hero-slides img{transform:none}
+}
+
+/* Responsive */
+@media (max-width:1100px){
+  .nav{display:none}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .trust-grid,.contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero-in{grid-template-columns:1fr}
+  .hero-card{max-width:520px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .road{display:none}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .hdr-soc,.hdr .btn{display:none}
+  .burger{display:grid}
+  .hdr-in,.hdr.solid .hdr-in{height:66px}
+  .mnav{position:fixed;inset:66px 0 auto;background:var(--surface);color:var(--ink);padding:12px 16px 20px;box-shadow:var(--shadow);display:grid;gap:4px;transform:translateY(-12px);opacity:0;pointer-events:none;transition:all .3s var(--ease)}
+  .mnav.open{transform:none;opacity:1;pointer-events:auto}
+  .mnav a{padding:14px 12px;border-radius:12px;text-decoration:none;font-weight:500}
+  .mnav a:hover{background:var(--mint)}
+  .hero-in{padding:110px 0 28px;gap:28px}
+  .hero h1{font-size:clamp(40px,11.5vw,58px)}
+  .hero-card{display:none}
+  .hero-meta{flex-direction:column;align-items:flex-start}
+  .hero-meta ul{gap:8px 18px;font-size:14px}
+  .slide-name{text-align:left;min-width:0;justify-content:flex-start}
+  .stats-in{grid-template-columns:1fr 1fr;gap:24px}
+  .stat{flex-direction:column;align-items:center;text-align:center;gap:10px;min-width:0}
+  .stat > div{min-width:0}
+  .stat b{font-size:28px}
+  .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(-1*var(--gut));padding:4px var(--gut) 8px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .chip{flex:none}
+  .grid{grid-template-columns:1fr;gap:20px}
+  .bento{grid-template-columns:1fr}
+  .tile.wide{grid-column:auto}
+  .steps{grid-template-columns:1fr;gap:16px}
+  .step{min-height:0}
+  .step-num{font-size:84px}
+  .step.final{min-height:360px}
+  .trust-list{grid-template-columns:1fr}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:10px}
+  .g-item span{opacity:1;transform:none;font-size:12.5px}
+  .g-item::after{opacity:1}
+  .two{grid-template-columns:1fr;gap:0}
+  .comm{grid-template-columns:1fr;border-radius:22px}
+  .comm-photos{height:260px}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-bottom{padding-right:0;padding-bottom:70px}
+  .m-wrap{padding:0;align-items:end}
+  .modal{grid-template-columns:1fr;max-height:94svh;border-radius:24px 24px 0 0;overflow-y:auto}
+  @keyframes pop{from{opacity:0;transform:translateY(80px)}to{opacity:1;transform:none}}
+  .m-media{min-height:300px}
+  .m-body{padding:24px 20px 28px;overflow:visible}
+  .m-facts{gap:8px}
+  .m-facts div{padding:10px}
+  .fab{right:16px;bottom:72px}
+  .fab-tip{display:none}
+}
+@media (min-width:761px){.mnav{display:none}}
+
+html{color-scheme:light}
+[data-theme="dark"]{color-scheme:dark;--sand:#0c1815;--surface:#13241f;--ink:#e6efeb;--muted:#a3b7af;--line:#273c33;--mint:#1c3b31;--tint:#bfe3d2;--red-soft:#3b1d1e;--hdr:rgba(12,24,21,.94);--shadow-s:0 6px 20px -8px rgba(0,0,0,.65);--shadow:0 18px 50px -18px rgba(0,0,0,.75)}
+.field select,.field input,.field textarea,.stepper,.stepper button,.stepper output{color:#10221d}
+.field input::placeholder,.field textarea::placeholder{color:#6b7c75}
+[data-theme="dark"] .plan{background:#0a2a21;box-shadow:inset 0 0 0 1px #24453a}
+[data-theme="dark"] .leaflet-tile{filter:brightness(.72) saturate(.85) contrast(1.05)}
+[data-theme="dark"] .globe-wrap,[data-theme="dark"] .leaflet-container{background:#1b2a25}
+[data-theme="dark"] .rnt-card{background:linear-gradient(140deg,#1d5545,#0b241e)}
+[data-theme="dark"] .inc,[data-theme="dark"] .foot{background:#0a201a}
+[data-theme="dark"] .step-num{color:#1f3a31}
+[data-theme="dark"] .m-close,[data-theme="dark"] .m-tools .m-nav button{background:#1f332c;color:var(--ink)}
+[data-theme="dark"] .badge{background:rgba(19,36,31,.92);color:var(--ink)}
+body,.card,.chip,.t-item,.contact-card,.step,.stats,.modal,.m-body,.hdr{transition:background-color .4s var(--ease),color .4s var(--ease),border-color .4s}
+.theme-btn{width:42px;height:42px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:rgba(255,255,255,.18);color:inherit;transition:background-color .25s,transform .4s var(--ease)}
+.theme-btn:hover{transform:rotate(-20deg)}
+.hdr.solid .theme-btn{background:var(--mint)}
+.theme-btn .ico{width:20px;height:20px}
+.theme-btn .i-moon{display:block}.theme-btn .i-sun{display:none}
+[data-theme="dark"] .theme-btn .i-moon{display:none}[data-theme="dark"] .theme-btn .i-sun{display:block}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-logo" viewBox="0 0 32 32"><path d="M16 3 2 28h28L16 3Z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="m16 13-6 11h12l-6-11Z" fill="currentColor"/></symbol>
+    <symbol id="i-mtn" viewBox="0 0 24 24"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></symbol>
+    <symbol id="i-waves" viewBox="0 0 24 24"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/></symbol>
+    <symbol id="i-palm" viewBox="0 0 24 24"><path d="M13 8c0-2.76-2.46-5-5.5-5S2 5.24 2 8h2l1-1 1 1h4"/><path d="M13 7.14A5.82 5.82 0 0 1 16.5 6c3.04 0 5.5 2.24 5.5 5h-3l-1-1-1 1h-3"/><path d="M5.89 9.71c-2.15 2.15-2.3 5.47-.35 7.43l4.24-4.25.7-.7.71-.71 2.12-2.12c-1.95-1.96-5.27-1.8-7.42.35"/><path d="M11 15.5c.5 2.5-.17 4.5-1 6.5h4c2-5.5-.5-12-1-14"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24"><path d="M8 6v6M15 6v6M2 12h19.6M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/></symbol>
+    <symbol id="i-food" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M11.5 2.3a.53.53 0 0 1 .95 0l2.31 4.68a2.1 2.1 0 0 0 1.6 1.16l5.16.76a.53.53 0 0 1 .3.9l-3.74 3.64a2.1 2.1 0 0 0-.61 1.88l.88 5.14a.53.53 0 0 1-.77.56l-4.62-2.43a2.1 2.1 0 0 0-1.97 0L6.4 21.01a.53.53 0 0 1-.77-.56l.88-5.14a2.1 2.1 0 0 0-.61-1.88L2.16 9.8a.53.53 0 0 1 .29-.9l5.17-.76a2.1 2.1 0 0 0 1.6-1.16z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 10h8M8 18h8M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></symbol>
+    <symbol id="i-fb" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></symbol>
+    <symbol id="i-th" viewBox="0 0 24 24"><path d="M16.5 11.2c-.1 0-.2-.1-.3-.1-.2-3-1.8-4.7-4.6-4.7-1.7 0-3.1.7-3.9 2l1.5 1c.6-.9 1.6-1.1 2.4-1.1 1 0 1.7.3 2.2.8.3.4.6 1 .7 1.7-.8-.1-1.7-.2-2.6-.1-2.6.2-4.3 1.7-4.2 3.8.1 1.1.6 2 1.5 2.6.8.5 1.8.8 2.8.7 1.4-.1 2.5-.6 3.2-1.6.6-.7.9-1.7 1-2.9.7.4 1.2 1 1.4 1.7.5 1.1.5 2.9-1 4.4-1.3 1.3-2.9 1.9-5.3 1.9-2.6 0-4.6-.9-5.9-2.5C4.4 17.3 3.8 15.1 3.8 12.3s.6-5 1.8-6.6C6.9 4.1 8.9 3.3 11.5 3.2c2.7 0 4.7.9 6 2.5.7.8 1.2 1.8 1.5 2.9l1.8-.5c-.4-1.4-1-2.6-1.9-3.6C17.2 2.4 14.7 1.3 11.5 1.3c-3.2 0-5.7 1.1-7.3 3.1C2.8 6.3 2 8.9 2 12.3s.8 6 2.2 7.9c1.6 2 4.1 3.1 7.3 3.1 2.9 0 4.9-.8 6.5-2.4 2.1-2.1 2.1-4.7 1.4-6.3-.5-1.2-1.5-2.1-2.9-2.7zm-4.7 4.6c-1.1.1-2.3-.4-2.4-1.5 0-.8.6-1.7 2.5-1.8h.7c.7 0 1.3.1 1.9.2-.2 2.4-1.4 3-2.7 3.1z"/></symbol>
+    <symbol id="i-boat" viewBox="0 0 24 24"><path d="M22 18H2a4 4 0 0 0 4 4h12a4 4 0 0 0 4-4Z"/><path d="M21 14 10 2 3 14h18Z"/><path d="M10 2v16"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
+    <symbol id="i-sunset" viewBox="0 0 24 24"><path d="M12 10V2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M19.07 10.93l-1.41 1.41M22 22H2M16 6l-4 4-4-4M16 18a4 4 0 0 0-8 0"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9"/><path d="M20 3v4M22 5h-4"/></symbol>
+    <symbol id="i-foot" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></symbol>
+    <symbol id="i-bino" viewBox="0 0 24 24"><path d="M10 10h4M19 7V4a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3M20 21a2 2 0 0 0 2-2v-3.85c0-1.39-2-2.96-2-4.83V8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v11a2 2 0 0 0 2 2zM22 16H2M4 21a2 2 0 0 1-2-2v-3.85c0-1.39 2-2.96 2-4.83V8a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v11a2 2 0 0 1-2 2zM9 7V4a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v3"/></symbol>
+    <symbol id="i-fish" viewBox="0 0 24 24"><path d="M6.5 12c.94-3.46 4.94-6 8.5-6 3.56 0 6.06 2.54 7 6-.94 3.47-3.44 6-7 6s-7.56-2.53-8.5-6Z"/><path d="M18 12v.5M16 17.93a9.77 9.77 0 0 1 0-11.86M7 10.67C7 8 5.58 5.97 2.73 5.5c-1 1.5-1 5 .23 6.5-1.24 1.5-1.24 5-.23 6.5C5.58 18.03 7 16 7 13.33"/></symbol>
+    <symbol id="i-landmark" viewBox="0 0 24 24"><path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2l8 5H4z"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  </defs>
+</svg>
+
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a class="logo" href="#inicio" aria-label="Aventureros Ecoturismo, inicio">
+      <span class="logo-mark"></span>
+      <span class="logo-word"></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#destinos">Destinos</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#incluye">Qué incluye</a>
+      <a href="#reservar">Cómo viajar</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="hdr-soc">
+      <a href="https://www.instagram.com/aventureros_ecoturismo/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico"><use href="#i-ig"/></svg></a>
+      <a href="https://www.facebook.com/aventurerosecoturismo" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ico"><use href="#i-fb"/></svg></a>
+    </div>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Cambiar tema claro u oscuro"><svg class="ico i-moon"><use href="#i-moon"/></svg><svg class="ico i-sun"><use href="#i-sun"/></svg></button>
+    <a class="btn btn-red" href="#contacto">Contáctanos</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mnav"><svg class="ico"><use href="#i-menu"/></svg></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menú móvil">
+    <a href="#destinos">Destinos</a><a href="#mapa">Mapa de aventuras</a><a href="#incluye">Qué incluye</a><a href="#reservar">Cómo viajar</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a><a href="#comunidad">Comunidad de WhatsApp</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero" id="portada" aria-labelledby="hero-title">
+    <div class="hero-slides" id="slides">
+      <img class="on" src="img/web/macarena.jpg" alt="" data-name="Caño Cristales, La Macarena" fetchpriority="high">
+      <img src="img/web/tayrona2.jpg" alt="" data-name="Parque Tayrona" loading="lazy">
+      <img src="img/web/cabovela.jpg" alt="" data-name="Cabo de la Vela, La Guajira" loading="lazy">
+      <img src="img/web/tatacoa.jpg" alt="" data-name="Desierto de la Tatacoa" loading="lazy">
+      <img src="img/web/norcasia.jpg" alt="" data-name="Río La Miel, Caldas" loading="lazy">
+    </div>
+    <div class="hero-box">
+      <div class="hero-in">
+        <div>
+          <h1 id="hero-title" class="kt"><span class="kt-l1"><span class="w" style="--d:0"><span>Escapa</span></span> <span class="w" style="--d:1"><span>del</span></span> <span class="w noise" style="--d:2"><span>ruido</span></span></span> <span class="kt-l2"><span class="w" style="--d:4"><span>y</span></span> <span class="w" style="--d:5"><span>conéctate</span></span> <span class="w" style="--d:6"><span>con</span></span> <span class="w" style="--d:7"><span>la</span></span> <span class="w nat" style="--d:8"><span>naturaleza</span></span></span></h1>
+          <p class="hero-lead t-in" style="--d:11">Rutas ecológicas por los destinos más bellos de Colombia, con guías expertos. Salimos desde Cali con transporte, guía e ingresos incluidos.</p>
+          <div class="hero-cta t-in" style="--d:13">
+            <a class="btn btn-red" href="#destinos">Encuentra tu escape<svg class="ico arrow"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#reservar">Cómo viajar con nosotros</a>
+          </div>
+        </div>
+        <div class="hero-card t-in" style="--d:14">
+          <h2>¿Qué plan te provoca?</h2>
+          <div class="cats-quick">
+            <a href="#destinos" data-jump="cascadas"><svg class="ico"><use href="#i-drop"/></svg>Cascadas</a>
+            <a href="#destinos" data-jump="rios"><svg class="ico"><use href="#i-waves"/></svg>Ríos</a>
+            <a href="#destinos" data-jump="playas"><svg class="ico"><use href="#i-palm"/></svg>Playas</a>
+            <a href="#destinos" data-jump="montana"><svg class="ico"><use href="#i-mtn"/></svg>Montaña y desierto</a>
+            <a href="#destinos" data-jump="descanso"><svg class="ico"><use href="#i-flame"/></svg>Termales</a>
+            <a href="#destinos" data-jump="internacional"><svg class="ico"><use href="#i-plane"/></svg>Internacional</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <div class="hero-meta">
+          <ul>
+            <li><svg class="ico"><use href="#i-shield"/></svg>RNT 120530</li>
+            <li><svg class="ico"><use href="#i-bus"/></svg>Transporte desde Cali</li>
+            <li><svg class="ico"><use href="#i-compass"/></svg>Guía en todo el recorrido</li>
+          </ul>
+          <div class="slide-ctl">
+            <span class="slide-name" aria-live="polite"><svg class="ico"><use href="#i-pin"/></svg><span id="slideName">Caño Cristales, La Macarena</span></span>
+            <div class="bars" id="bars"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+  <section class="stats" aria-label="Aventureros en cifras">
+    <div class="wrap stats-in">
+      <div class="stat rv"><span class="stat-ico"><svg class="ico"><use href="#i-pin"/></svg></span><div><b data-count="19">19</b><span>destinos en Colombia y el Caribe</span></div></div>
+      <div class="stat rv" style="--i:1"><span class="stat-ico"><svg class="ico"><use href="#i-users"/></svg></span><div><b data-count="6800" data-prefix="+">+6.800</b><span>aventureros nos siguen</span></div></div>
+      <div class="stat rv" style="--i:2"><span class="stat-ico"><svg class="ico"><use href="#i-camera"/></svg></span><div><b data-count="730" data-prefix="+">+730</b><span>publicaciones de viajes reales</span></div></div>
+      <div class="stat rv" style="--i:3"><span class="stat-ico"><svg class="ico"><use href="#i-shield"/></svg></span><div><b>RNT</b><span>120530, agencia registrada</span></div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="destinos">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker rv"><svg class="ico"><use href="#i-compass"/></svg>Escapes de naturaleza</span>
+          <h2 class="rv" style="--i:1">Elige tu escape</h2>
+        </div>
+        <p class="rv" style="--i:2">Filtra por tipo de plan y toca un destino para conocer qué incluye, cuánto dura y qué vas a vivir.</p>
+      </div>
+      <div class="filters rv" id="filters" role="toolbar" aria-label="Filtrar destinos"></div>
+      <div class="grid" id="grid"></div>
+      <p class="dest-note rv">¿Buscas otro lugar o un plan privado para tu grupo? <a class="link-soft" href="#contacto">Cuéntanos qué tienes en mente</a></p>
+    </div>
+  </section>
+
+  <section class="sec globe-sec" id="mapa">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker rv"><svg class="ico"><use href="#i-pin"/></svg>Mapa de aventuras</span>
+          <h2 class="rv" style="--i:1">Todos los lugares a donde viajamos</h2>
+        </div>
+        <p class="rv" style="--i:2">Explora el mapa, acércate a cada región y toca un destino para conocer el plan. Todas las rutas salen desde Cali.</p>
+      </div>
+      <div class="globe-grid">
+        <div class="globe-wrap rv" id="globeWrap">
+          <div id="globe" role="region" aria-label="Mapa con los destinos de Aventureros Ecoturismo"></div>
+          <div class="map-zones" role="group" aria-label="Ir a una zona"><button type="button" data-zone="all" class="on">Todo</button><button type="button" data-zone="col">Colombia</button><button type="button" data-zone="valle">Valle y Pacífico</button><button type="button" data-zone="caribe">Caribe</button></div>
+          <div class="globe-legend" aria-hidden="true"><span><i style="background:#e01b1f"></i>Cali, punto de salida</span><span><i style="background:#fff;border:2px solid #e01b1f"></i>Destinos</span></div>
+          <div class="globe-ctl"><button type="button" id="gIn" aria-label="Acercar">+</button><button type="button" id="gOut" aria-label="Alejar">−</button><button type="button" id="gHome" aria-label="Ver Colombia completa"><svg class="ico" style="width:20px;height:20px"><use href="#i-compass"/></svg></button></div>
+          <div class="globe-fallback"><p>No pudimos cargar el mapa. Revisa la lista de destinos al lado.</p></div>
+        </div>
+        <aside class="globe-side rv" style="--i:1">
+          <h3>Destinos en el mapa</h3>
+          <p>Toca un lugar para verlo en el mapa.</p>
+          <ul class="place-list" id="placeList"></ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec inc" id="incluye">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker rv"><svg class="ico"><use href="#i-bag"/></svg>Todo resuelto</span>
+          <h2 class="rv" style="--i:1">Qué incluye tu viaje</h2>
+        </div>
+        <p class="rv" style="--i:2">Tú te desconectas; nosotros nos encargamos del transporte, los ingresos y la logística. Lo que trae cada plan te lo confirmamos por escrito antes de pagar.</p>
+      </div>
+      <div class="bento">
+        <div class="tile rv"><span class="tile-ico"><svg class="ico"><use href="#i-bus"/></svg></span><h3>Transporte</h3><p>Ida y regreso desde Cali. Lanchas y traslados internos cuando el destino lo pide.</p></div>
+        <div class="tile rv" style="--i:1"><span class="tile-ico"><svg class="ico"><use href="#i-compass"/></svg></span><h3>Guía y coordinador</h3><p>Te acompaña un coordinador de viaje de principio a fin, con guías que conocen la zona.</p></div>
+        <div class="tile photo wide rv" style="--i:2"><img src="img/cascada-grupo.jpg" alt="Grupo de Aventureros con chalecos en el pozo de una cascada" loading="lazy"><span class="cap"><svg class="ico"><use href="#i-shield"/></svg>Chalecos y equipo en cada actividad de agua.</span></div>
+        <div class="tile rv"><span class="tile-ico"><svg class="ico"><use href="#i-ticket"/></svg></span><h3>Ingresos</h3><p>Entradas a reservas naturales, parques y balnearios del plan.</p></div>
+        <div class="tile rv" style="--i:1"><span class="tile-ico"><svg class="ico"><use href="#i-shield"/></svg></span><h3>Seguro y asistencia</h3><p>Seguro de viaje y asistencia médica durante el recorrido.</p></div>
+        <div class="tile photo wide rv" style="--i:2"><img src="img/grupo-mochilas.jpg" alt="Viajeras abrazadas con las mochilas rojas de Aventureros" loading="lazy" style="object-position:50% 72%"><span class="cap"><svg class="ico"><use href="#i-heart"/></svg>Viajas en grupo: nadie se queda atrás.</span></div>
+        <div class="tile wide rv"><span class="tile-ico"><svg class="ico"><use href="#i-food"/></svg></span><h3>Alimentación y hospedaje</h3><p>Desayuno y almuerzo en los planes de un día; hospedaje en los de varios días. En Punta Cana, hotel todo incluido.</p></div>
+        <div class="tile wide rv" style="--i:1"><span class="tile-ico"><svg class="ico"><use href="#i-msg"/></svg></span><h3>Atención por WhatsApp</h3><p>Te acompañamos antes, durante y después del viaje: horarios, equipaje y puntos de salida.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="reservar">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker rv"><svg class="ico"><use href="#i-users"/></svg>Trato directo y personal</span>
+          <h2 class="rv" style="--i:1">Así viajas con nosotros</h2>
+        </div>
+        <p class="rv" style="--i:2">Aquí no hay carrito de compras ni pagos en línea. Conversamos contigo, resolvemos tus dudas y acordamos todo de forma directa.</p>
+      </div>
+      <div class="road rv" aria-hidden="true">
+        <span class="road-fill"></span>
+        <span class="road-stop s1">1</span><span class="road-stop s2">2</span><span class="road-stop s3">3</span><span class="road-stop s4">4</span>
+        <span class="road-bus"><svg class="ico"><use href="#i-bus"/></svg></span>
+      </div>
+      <ol class="steps">
+        <li class="step rv">
+          <span class="step-num" aria-hidden="true">01</span>
+          <div class="step-top"><span class="step-ico"><svg class="ico"><use href="#i-pin"/></svg></span><span class="step-tag">Paso 1</span></div>
+          <h3>Elige el destino</h3>
+          <p>Cascadas, ríos, playas o desierto: mira los planes y escoge el que más te guste.</p>
+          <div class="step-extra">
+            <a class="mini-dests" href="#destinos" aria-label="Ver los 19 destinos">
+              <img src="img/web/macarena.jpg" alt="Caño Cristales" loading="lazy"><img src="img/web/tayrona2.jpg" alt="Parque Tayrona" loading="lazy"><img src="img/web/tatacoa.jpg" alt="Desierto de la Tatacoa" loading="lazy"><img src="img/villacarmelo.jpg" alt="Cascada en Villacarmelo" loading="lazy"><span>+15</span>
+            </a>
+          </div>
+        </li>
+        <li class="step rv" style="--i:1">
+          <span class="step-num" aria-hidden="true">02</span>
+          <div class="step-top"><span class="step-ico"><svg class="ico"><use href="#i-msg"/></svg></span><span class="step-tag">Paso 2</span></div>
+          <h3>Conversemos</h3>
+          <p>Por WhatsApp, llamada o el formulario: te contamos fechas, tarifa y lo que incluye.</p>
+          <div class="step-extra chat" aria-hidden="true">
+            <span class="me">Hola, quiero ir al Tayrona</span>
+            <span class="them">¡Hola! Te comparto fecha y tarifa</span>
+            <span class="them typing"><i></i><i></i><i></i></span>
+          </div>
+        </li>
+        <li class="step rv" style="--i:2">
+          <span class="step-num" aria-hidden="true">03</span>
+          <div class="step-top"><span class="step-ico"><svg class="ico"><use href="#i-card"/></svg></span><span class="step-tag">Paso 3</span></div>
+          <h3>Separa con el 30%</h3>
+          <p>Cuando decidas, apartas tu cupo con el 30% directamente con nosotros. El anticipo no es reembolsable.</p>
+          <div class="step-extra">
+            <div class="meter-lbl"><span>Anticipo</span><span>30%</span></div>
+            <div class="meter"><i></i></div>
+            <ul class="pay"><li>Nequi</li><li>Bancolombia</li><li>Daviplata</li><li>Tarjetas</li></ul>
+          </div>
+        </li>
+        <li class="step final rv" style="--i:3">
+          <img src="img/web/tayrona2.jpg" alt="Playa del Parque Tayrona" loading="lazy">
+          <span class="step-num" aria-hidden="true">04</span>
+          <div class="step-top"><span class="step-ico"><svg class="ico"><use href="#i-bag"/></svg></span><span class="step-tag">Paso 4</span></div>
+          <h3>¡A viajar!</h3>
+          <p>Te confirmamos punto y hora de salida desde Cali. Solo lleva tu mochila.</p>
+          <div class="step-extra">
+            <p class="final-note"><svg class="ico"><use href="#i-heart"/></svg>Te acompañamos desde la salida hasta el regreso.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="confianza" style="padding-top:0" aria-label="Reserva con confianza">
+    <div class="wrap trust-grid">
+      <div class="rnt-card rv">
+        <span class="mtn mk" aria-hidden="true"></span>
+        <div class="rnt-head">
+          <span class="seal"><svg class="ico"><use href="#i-shield"/></svg></span>
+          <div><small>Registro Nacional de Turismo</small><b>RNT 120530</b></div>
+        </div>
+        <div class="rnt-body">
+          <h3>¿Qué significa este número?</h3>
+          <p>Es el registro que el Gobierno de Colombia exige a toda agencia de turismo para poder operar legalmente. Se tramita ante la Cámara de Comercio y se renueva cada año.</p>
+          <ul class="rnt-list">
+            <li><svg class="ico"><use href="#i-check"/></svg>Somos una empresa formal y legalmente registrada.</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Cumplimos las normas del Ministerio de Comercio, Industria y Turismo.</li>
+            <li><svg class="ico"><use href="#i-check"/></svg>Puedes comprobar que nuestro registro está vigente.</li>
+          </ul>
+          <div class="rnt-cta">
+            <a class="btn btn-white" href="https://www.rues.org.co/rnt" target="_blank" rel="noopener"><svg class="ico"><use href="#i-shield"/></svg>Verificar en el RUES</a>
+            <span>Busca el número <b>120530</b></span>
+          </div>
+          <p class="rnt-tip">Consejo: antes de pagarle a cualquier agencia, pídele su RNT y verifícalo.</p>
+        </div>
+      </div>
+      <div class="trust-list">
+        <div class="t-item rv"><svg class="ico"><use href="#i-card"/></svg><h3>Pagos directos, sin pasarelas</h3><p>No cobramos en esta página. Cuando acordamos tu viaje, pagas directamente con nosotros por transferencia o tarjeta.</p>
+          <ul class="pay"><li>Bancolombia</li><li>Nequi</li><li>Daviplata</li><li>Transfiya</li><li>Llave</li><li>Tarjetas</li></ul></div>
+        <div class="t-item rv" style="--i:1"><svg class="ico"><use href="#i-users"/></svg><h3>Cupos limitados</h3><p>Grupos que se pueden acompañar bien. Cuando se llena una fecha, abrimos la siguiente.</p></div>
+        <div class="t-item rv" style="--i:2"><svg class="ico"><use href="#i-lock"/></svg><h3>Solo canales oficiales</h3><p>Confirma pagos únicamente con las líneas de esta página. Si te escriben desde otro número a nombre nuestro, avísanos.</p></div>
+        <div class="t-item rv" style="--i:3"><svg class="ico"><use href="#i-heart"/></svg><h3>Una comunidad real</h3><p>Miles de personas siguen nuestras salidas y comparten sus fotos en Instagram y en el grupo de WhatsApp.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="galeria" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker rv"><svg class="ico"><use href="#i-camera"/></svg>Lejos del ruido</span>
+          <h2 class="rv" style="--i:1">Así se siente desconectarse</h2>
+        </div>
+        <p class="rv" style="--i:2">Fotos de nuestras salidas, tomadas por el equipo y los viajeros. Toca una para verla en grande.</p>
+      </div>
+      <div class="gallery" id="gallery"></div>
+      <div class="ig-cta rv"><a class="btn btn-red" href="https://www.instagram.com/aventureros_ecoturismo/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-ig"/></svg>Síguenos en Instagram</a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacto" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="kicker rv"><svg class="ico"><use href="#i-phone"/></svg>Contacto</span>
+          <h2 class="rv" style="--i:1">Hablemos de tu próximo escape</h2>
+        </div>
+        <p class="rv" style="--i:2">Te respondemos por WhatsApp con fechas, tarifa y lo que incluye cada salida.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card rv">
+          <h3>Líneas de atención</h3>
+          <p>Elige el medio que te quede más cómodo. Estamos en Cali.</p>
+          <a class="c-line" href="https://wa.me/573226213728" target="_blank" rel="noopener"><span class="c-ico" style="background:#25d366"><svg class="ico fill"><use href="#i-wa"/></svg></span><span><b>322 621 3728</b><small>WhatsApp</small></span></a>
+          <a class="c-line" href="tel:+573226213728"><span class="c-ico" style="background:var(--jungle)"><svg class="ico"><use href="#i-phone"/></svg></span><span><b>322 621 3728</b><small>Llamadas</small></span></a>
+          <a class="c-line" href="https://www.facebook.com/aventurerosecoturismo" target="_blank" rel="noopener"><span class="c-ico" style="background:#1877f2"><svg class="ico"><use href="#i-fb"/></svg></span><span><b>Aventureros Ecoturismo</b><small>Página de Facebook</small></span></a>
+          <a class="c-line" href="https://www.instagram.com/aventureros_ecoturismo/" target="_blank" rel="noopener"><span class="c-ico" style="background:var(--red)"><svg class="ico"><use href="#i-ig"/></svg></span><span><b>@aventureros_ecoturismo</b><small>Instagram</small></span></a>
+          <a class="ig-strip" href="https://www.instagram.com/aventureros_ecoturismo/" target="_blank" rel="noopener" aria-label="Ver más fotos en Instagram">
+            <img src="img/tayrona-atardecer.jpg" alt="Atardecer en el Tayrona" loading="lazy"><img src="img/cascada-grupo.jpg" alt="Grupo en una cascada" loading="lazy"><img src="img/necocli.jpg" alt="Calle del pescador en Necoclí" loading="lazy">
+            <span><svg class="ico"><use href="#i-ig"/></svg>Más de 730 publicaciones de nuestras salidas</span>
+          </a>
+          <div class="host">
+            <img src="img/buenaventura.jpg" alt="Harold, de Aventureros Ecoturismo" loading="lazy">
+            <p><b>Harold y el equipo de Aventureros</b> coordinan cada salida y te acompañan durante todo el viaje.</p>
+          </div>
+        </div>
+        <form class="plan rv" id="plan" style="--i:1" novalidate>
+          <h3>Cuéntanos qué viaje te interesa</h3>
+          <p>Déjanos tus datos y te contactamos de forma personal para resolver tus dudas. Sin compromiso.</p>
+          <div class="two">
+            <div class="field"><label for="f-name">Tu nombre</label><input id="f-name" type="text" autocomplete="name" placeholder="Ej.: Laura Gómez"></div>
+            <div class="field"><label for="f-dest">Destino</label><select id="f-dest"></select></div>
+          </div>
+          <div class="two">
+            <div class="field"><span class="lbl" id="l-people">Personas</span>
+              <div class="stepper" role="group" aria-labelledby="l-people">
+                <button type="button" data-step="-1" aria-label="Una persona menos">−</button>
+                <output id="f-people" aria-live="polite">2</output>
+                <button type="button" data-step="1" aria-label="Una persona más">+</button>
+              </div>
+            </div>
+            <div class="field"><label for="f-month">¿Cuándo?</label><select id="f-month"></select></div>
+          </div>
+          <div class="field"><label for="f-note">¿Algo que debamos saber? <span style="font-weight:400;opacity:.8">(opcional)</span></label><textarea id="f-note" rows="2" placeholder="Ej.: viajamos con niños, es un cumpleaños, preferimos fines de semana…"></textarea></div>
+          <p class="preview-lbl"><svg class="ico"><use href="#i-msg"/></svg>Así nos llegará tu mensaje</p>
+          <p class="preview" id="f-preview"></p>
+          <div class="send-row">
+            <button class="btn btn-green" type="submit" data-via="wa"><svg class="ico fill"><use href="#i-wa"/></svg>Enviar por WhatsApp</button>
+            <button class="btn btn-ghost" type="button" id="f-mail" data-via="mail" hidden><svg class="ico"><use href="#i-mail"/></svg>Enviar por correo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="comunidad" aria-labelledby="comm-h">
+    <div class="wrap">
+      <div class="comm rv">
+        <span class="bigmtn mk" aria-hidden="true"></span>
+        <div style="position:relative">
+          <span class="kicker"><svg class="ico"><use href="#i-users"/></svg>Comunidad Aventureros</span>
+          <h2 id="comm-h">Únete al grupo de WhatsApp</h2>
+          <p>Ahí publicamos primero las salidas nuevas, los últimos cupos y las fotos de cada viaje.</p>
+          <div class="btns">
+            <a class="btn btn-white" href="https://chat.whatsapp.com/Ifr1BiHvgmIAzCcPuY3iMo" target="_blank" rel="noopener"><svg class="ico fill" style="color:#1f9d55"><use href="#i-wa"/></svg>Entrar a la comunidad</a>
+            <a class="btn btn-ghost" href="https://www.facebook.com/aventurerosecoturismo" target="_blank" rel="noopener"><svg class="ico"><use href="#i-fb"/></svg>Facebook</a>
+          </div>
+        </div>
+        <div class="comm-photos" aria-hidden="true">
+          <img src="img/web/tayrona2.jpg" alt="Playa del Parque Tayrona" loading="lazy">
+          <img src="img/cascada-grupo.jpg" alt="Grupo de Aventureros en una cascada" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo foot-logo" href="#inicio" aria-label="Aventureros Ecoturismo, inicio"><span class="logo-mark"></span><span class="logo-word"></span></a>
+        <p>Escapa del ruido y conéctate con la naturaleza. Rutas ecológicas por los destinos más bellos de Colombia, con guías expertos.</p>
+        <div class="soc">
+          <a href="https://www.instagram.com/aventureros_ecoturismo/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico"><use href="#i-ig"/></svg></a>
+          <a href="https://www.facebook.com/aventurerosecoturismo" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ico"><use href="#i-fb"/></svg></a>
+          <a href="https://www.threads.net/@aventureros_ecoturismo" target="_blank" rel="noopener" aria-label="Threads"><svg class="ico fill"><use href="#i-th"/></svg></a>
+          <a href="https://chat.whatsapp.com/Ifr1BiHvgmIAzCcPuY3iMo" target="_blank" rel="noopener" aria-label="Comunidad de WhatsApp"><svg class="ico fill"><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+      <div><h2 class="foot-h">Destinos</h2><ul id="footDest"></ul></div>
+      <div><h2 class="foot-h">Explora</h2><ul><li><a href="#mapa">Mapa de aventuras</a></li><li><a href="#incluye">Qué incluye</a></li><li><a href="#reservar">Cómo viajar</a></li><li><a href="#confianza">Pagos y confianza</a></li><li><a href="#galeria">Galería</a></li><li><a href="#comunidad">Comunidad</a></li></ul></div>
+      <div><h2 class="foot-h">Contacto</h2><ul><li><a href="https://wa.me/573226213728" target="_blank" rel="noopener">WhatsApp 322 621 3728</a></li><li><a href="tel:+573226213728">Llamar al 322 621 3728</a></li><li>Cali, Valle del Cauca</li><li>RNT 120530</li></ul></div>
+    </div>
+    <div class="foot-bottom"><span>© 2026 Aventureros Ecoturismo. Todos los derechos reservados.</span><span>Fotos: Aventureros Ecoturismo y <a href="#creditos" style="color:inherit">Wikimedia Commons</a></span></div>
+    <details class="credits" id="creditos"><summary>Créditos de fotografías de destinos</summary><ul><li><a href="https://commons.wikimedia.org/wiki/File:116_Tayrona_Colombia_Beach.JPG" target="_blank" rel="noopener">"116 Tayrona Colombia Beach" by David Shankbone, CC BY-SA 3.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Rio_la_miel_caldas_Saman%C3%A1.jpg" target="_blank" rel="noopener">"Rio la miel caldas Samaná" by cesar augusto trujillo trujillo, CC BY-SA 2.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Bahia_el_Aguacate_en_Capurgan%C3%A1_Colombia.jpg" target="_blank" rel="noopener">"Bahia el Aguacate en Capurganá Colombia" by Johan Andrés Toro, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Cascadas_Manto_de_La_Virgen_-_Ca%C3%B1o_Cristales_-_La_Macarena_-_Meta_-_Colombia.jpg" target="_blank" rel="noopener">"Cascadas Manto de La Virgen - Caño Cristales - La Macarena - Meta - Colombia" by Gicaman, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Bah%C3%ADa_de_Sapzurro_y_claridad_marina.jpg" target="_blank" rel="noopener">"Bahía de Sapzurro y claridad marina" by Johan Andrés Toro, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Taroa_Dunes_in_Alta_Guajira_near_Punta_Gallinas_2023.jpg" target="_blank" rel="noopener">"Taroa Dunes in Alta Guajira near Punta Gallinas 2023" by Oscar Costero, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Termales_de_Coconuco.jpg" target="_blank" rel="noopener">"Termales de Coconuco" by john galindo, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Volc%C3%A1n_Chiles_2.jpg" target="_blank" rel="noopener">"Volcán Chiles 2" by Indianaojones, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Cabo_de_la_Vela,_Colombia.jpg" target="_blank" rel="noopener">"Cabo de la Vela, Colombia" by Tanenhaus, CC BY 2.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Desierto_de_La_Tatacoa_(Tatacoa_Desert).jpg" target="_blank" rel="noopener">"Desierto de La Tatacoa (Tatacoa Desert)" by SergiXCX, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Parque_Arqueol%C3%B3gico_de_San_Agust%C3%ADn-Mesita_A_12.jpg" target="_blank" rel="noopener">"Parque Arqueológico de San Agustín-Mesita A 12" by Bernard Gagnon, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Ballena_jorobada_y_ballenato_en_Bah%C3%ADa_M%C3%A1laga.JPG" target="_blank" rel="noopener">"Ballena jorobada y ballenato en Bahía Málaga" by Jardín Botánico La Manigua, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Mirador_La_Mano_del_Gigante_en_Gigante,_Huila.jpg" target="_blank" rel="noopener">"Mirador La Mano del Gigante en Gigante, Huila" by Nikolaiky, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:2023_-_Playa_Bavaro_Punta_Cana_-_08.jpg" target="_blank" rel="noopener">"2023 - Playa Bavaro Punta Cana - 08" by Oleg Yunakov, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Reserva_Natural_R%C3%ADo_Claro_118.jpg" target="_blank" rel="noopener">"Reserva Natural Río Claro 118" by Motero colombia, CC BY-SA 4.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Puerto_Limon-_isla_fuerte.jpg" target="_blank" rel="noopener">"Puerto Limon- isla fuerte" by Ulughmuztagh, CC BY 3.0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Arbol_que_camina,_Isla_Fuerte.jpg" target="_blank" rel="noopener">"Arbol que camina, Isla Fuerte" by Anfecaro, CC0, via Wikimedia Commons</a></li><li><a href="https://commons.wikimedia.org/wiki/File:Ballena_jorobada_o_ballena_yubarta_(Megaptera_novaeangliae).jpg" target="_blank" rel="noopener">"Ballena jorobada o ballena yubarta (Megaptera novaeangliae)" by MemoOssa, CC BY-SA 4.0, via Wikimedia Commons</a></li></ul></details>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://wa.me/573226213728?text=Hola%20Aventureros%2C%20quiero%20informaci%C3%B3n%20de%20las%20pr%C3%B3ximas%20salidas." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <span class="fab-tip">¿Tienes dudas? Hablemos</span>
+  <span class="fab-btn"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+</a>
+
+<dialog id="modal" aria-labelledby="m-title">
+  <div class="m-wrap" data-close>
+    <article class="modal">
+      <div class="m-media">
+        <div class="m-stage">
+          <img id="m-img" src="img/web/macarena.jpg" alt="Foto del destino">
+          <div class="m-video" id="m-video"></div>
+        </div>
+        <p class="m-vcap" id="m-vcap"></p>
+        <div class="m-strip-wrap">
+          <div class="m-strip" id="m-strip"></div>
+          <button type="button" class="m-sbtn l" id="m-sl" aria-label="Fotos anteriores"><svg class="ico"><use href="#i-left"/></svg></button>
+          <button type="button" class="m-sbtn r" id="m-sr" aria-label="Más fotos"><svg class="ico"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+      <div class="m-body">
+        <div class="m-top"><span class="m-cat" id="m-cat"></span><div class="m-tools"><div class="m-nav"><button type="button" id="m-prev" aria-label="Destino anterior"><svg class="ico"><use href="#i-left"/></svg></button><button type="button" id="m-next" aria-label="Destino siguiente"><svg class="ico"><use href="#i-right"/></svg></button></div><button class="m-close" type="button" data-close aria-label="Cerrar"><svg class="ico"><use href="#i-x"/></svg></button></div></div>
+        <h2 id="m-title" class="m-title"></h2>
+        <p class="m-region"><svg class="ico"><use href="#i-pin"/></svg><span id="m-region"></span></p>
+        <p class="m-desc" id="m-desc"></p>
+        <div class="m-facts">
+          <div><svg class="ico"><use href="#i-clock"/></svg><small>Duración</small><b id="m-dur"></b></div>
+          <div><svg class="ico"><use href="#i-bus"/></svg><small>Salida</small><b id="m-from">Desde Cali</b></div>
+          <div><svg class="ico"><use href="#i-ticket"/></svg><small>Tarifa</small><b id="m-price"></b></div>
+        </div>
+        <h3 class="m-sub">Lo que vas a vivir</h3>
+        <ul class="m-list hl" id="m-hl"></ul>
+        <h3 class="m-sub">Incluye</h3>
+        <ul class="m-list" id="m-inc"></ul>
+        <p class="m-note">No vendemos en línea: te asesoramos de forma personal y acordamos fechas, tarifa y detalles directamente contigo.</p>
+        <div class="m-actions">
+          <button class="btn btn-red" type="button" id="m-ask"><svg class="ico"><use href="#i-msg"/></svg>Me interesa este plan</button>
+          <button class="btn btn-white" type="button" id="m-map" style="border:1.5px solid var(--line)"><svg class="ico"><use href="#i-pin"/></svg>Ver en el mapa</button>
+        </div>
+      </div>
+    </article>
+  </div>
+</dialog>
+
+<dialog id="lb" class="lb" aria-label="Foto ampliada">
+  <div class="m-wrap" data-close>
+    <div class="lb-in">
+      <button class="m-close" type="button" data-close aria-label="Cerrar"><svg class="ico"><use href="#i-x"/></svg></button>
+      <img id="lb-img" src="img/macarena.jpg" alt="Foto ampliada">
+      <p id="lb-cap"></p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  document.documentElement.classList.add('js');
+  const WA = '573226213728';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const ico = (id) => `<svg class="ico"><use href="#i-${id}"/></svg>`;
+
+  const CATS = {
+    todos: { label: 'Todos', icon: 'grid' },
+    cascadas: { label: 'Cascadas', icon: 'drop' },
+    rios: { label: 'Ríos', icon: 'waves' },
+    playas: { label: 'Playas', icon: 'palm' },
+    montana: { label: 'Montaña y desierto', icon: 'mtn' },
+    descanso: { label: 'Termales', icon: 'flame' },
+    internacional: { label: 'Internacional', icon: 'plane' }
+  };
+  const VIDEOS = {
+    "La Macarena": { id: 'sCHFwIipGA0', author: "Itinerant Lawyer" },
+    "Norcasia y Río La Miel": { id: 'QBpeh-KuE10', author: "Viajero Real" },
+    "Río Claro": { id: 'RQAMk4z1FvE', author: "Viajando Casados" },
+    "Zabaletas": { id: 'xYPR3HmKZKs', author: "David MetalBiker" },
+    "Embudo de Agua Clara y Cascada La Tortugaña": { id: '7lyI3sUThSE', author: "Marcos Wiphala" },
+    "Cascada La Miel, Dapa": { id: 'FMoWazZ-KmQ', author: "David MetalBiker" },
+    "Villacarmelo": { id: 'Dn1EuezXn4Q', author: "Viajando con Truji" },
+    "Parque Tayrona": { id: '66N2SW9Xjb4', author: "Positos Travelers" },
+    "Capurganá y Sapzurro": { id: 'aLc4PO-GVh8', author: "Pablo Trujillo Travel" },
+    "Isla Fuerte": { id: 'AcYPAOpekiU', author: "Eric Yulian" },
+    "Necoclí": { id: 'YSdE8QaNvwM', author: "El Colombiano" },
+    "Bahía Málaga y Buenaventura": { id: 'PFID81zhf-0', author: "El Viajero ADN" },
+    "Alta Guajira y Punta Gallinas": { id: 'MzyQ9qopIGQ', author: "Fukajaz" },
+    "Desierto de la Tatacoa": { id: 'EEbVVwp43HA', author: "Drone Capo Media" },
+    "Mano del Gigante y Paicol": { id: 'qQ3S2fOAQ-s', author: "MI PEZ" },
+    "San Agustín": { id: 'UVfU1DiMuVk', author: "Itinerant Lawyer" },
+    "Volcán Chiles": { id: 'x_dCQz_N_HY', author: "Explora Sin Fronteras" },
+    "Termales de Salinas": { id: '80GSzgpwM7c', author: "David MetalBiker" },
+    "Punta Cana 2027": { id: 'AffsAAcOdRQ', author: "Destination Paradise" }
+  };
+  const BASE_INC = ['Transporte ida y regreso desde Cali', 'Coordinador de viaje y guianza', 'Ingresos a los sitios del plan', 'Seguro y asistencia médica'];
+
+  const D = [
+    { name:'La Macarena', region:'Meta', cat:'rios', photos:['web/macarena','macarena'], dur:'Varios días', price:'Consultar',
+      tag:'Ríos que se pintan de rosa, rojo y amarillo.',
+      desc:'Un lugar que parece de otro planeta: ríos de colores, cascadas escondidas en la selva y caminatas que solo se hacen con guía local.',
+      hl:['Ríos de colores en temporada','Cascadas escondidas en la selva','Caminatas con guía local'] },
+    { name:'Norcasia y Río La Miel', region:'Caldas', cat:'rios', photos:['web/norcasia','norcasia'], dur:'Fin de semana', price:'Consultar',
+      tag:'Cañones gigantes, aguas verdes y saltos al río.',
+      desc:'Navegamos entre cañones gigantes, flotamos en el Río La Miel y nos lanzamos desde las rocas. Un plan para soltar el miedo y disfrutar.',
+      hl:['Navegación entre cañones','Saltos y nado en aguas verdes','Pueblo y naturaleza de Caldas'] },
+    { name:'Río Claro', region:'Antioquia', cat:'rios', photos:['web/rioclaro','rio-claro'], dur:'Fin de semana', price:'Consultar',
+      tag:'Tubing entre rocas y aguas cristalinas.',
+      desc:'Bajamos por el río en neumáticos, con casco y chaleco, rodeados de rocas y selva. Sé un viajero, no un turista.',
+      hl:['Tubing con casco y chaleco','Aguas cristalinas entre rocas','Selva antioqueña'] },
+    { name:'Zabaletas', region:'Valle del Cauca', cat:'rios', photos:['zabaletas'], dur:'Un día', price:'Desde $35.000',
+      tag:'Agua cristalina muy cerca de Cali.',
+      desc:'Un rincón del Valle que parece irreal: agua cristalina, piedras de colores y selva alrededor. Plan de un día ideal para desconectarte.',
+      hl:['Pozos de agua cristalina','Plan de un día desde Cali','Ideal para principiantes'] },
+    { name:'Embudo de Agua Clara y Cascada La Tortugaña', region:'Valle del Cauca', cat:'cascadas', photos:['cascada-grupo','tortugana'], dur:'Un día', price:'Consultar',
+      tag:'Un paraíso escondido en la selva.',
+      desc:'Descubrimos lugares ocultos y sentimos la fuerza del agua: el Embudo de Agua Clara y la Cascada La Tortugaña, en plena selva.',
+      hl:['Embudo de Agua Clara','Cascada La Tortugaña','Nado con chaleco'] },
+    { name:'Cascada La Miel, Dapa', region:'Cerca de Cali', cat:'cascadas', photos:['dapa'], dur:'Un día', price:'Consultar',
+      tag:'Caminata a una cascada con clima de montaña.',
+      desc:'Muy cerca de Cali, una caminata entre montaña y bosque hasta una cascada con pozo. También hacemos caminatas nocturnas.',
+      hl:['Caminata ecológica','Cascada con pozo','Opción de caminata nocturna'] },
+    { name:'Villacarmelo', region:'Zona rural de Cali', cat:'cascadas', photos:['villacarmelo'], dur:'Un día', price:'Consultar',
+      tag:'Entre montañas y selva, una cascada escondida.',
+      desc:'Entre montañas y selva, Villacarmelo guarda cascadas que pocos conocen. Un plan cercano para respirar aire puro.',
+      hl:['Cascada entre la selva','Senderos de montaña','A poca distancia de Cali'] },
+    { name:'Parque Tayrona', region:'Magdalena', cat:'playas', photos:['web/tayrona2','tayrona-cabo','tayrona-atardecer','tayrona-sendero','tayrona'], dur:'4 días', price:'Consultar',
+      tag:'Selva, mar y desconexión total.',
+      desc:'El Tayrona no es un destino, es una experiencia: senderos de selva que terminan en playas como Cabo San Juan, atardeceres y mar Caribe.',
+      hl:['Cabo San Juan','Senderos entre la selva','Atardeceres en el Caribe'] },
+    { name:'Capurganá y Sapzurro', region:'Chocó', cat:'playas', photos:['web/capurgana','web/sapzurro','grupo-capurgana'], dur:'5 días', price:'Consultar',
+      tag:'Entre selva, mar y frontera.',
+      desc:'Una expedición al Darién: aguas transparentes, pueblos sin carros y caminatas entre selva y mar hasta la frontera con Panamá.',
+      hl:['Aguas transparentes','Caminata a Sapzurro','Viaje en grupo de 5 días'] },
+    { name:'Isla Fuerte', region:'Bolívar', cat:'playas', photos:['web/islafuerte','web/islafuerte-arbol','isla-fuerte'], dur:'Varios días', price:'Consultar',
+      tag:'Aguas cristalinas y buena música.',
+      desc:'Una isla tranquila del Caribe colombiano: aguas cristalinas, playita, buena música y cero afanes. Terapia de mar.',
+      hl:['Snorkel en aguas cristalinas','Playas tranquilas','Paseos en lancha'] },
+    { name:'Necoclí', region:'Urabá antioqueño', cat:'playas', photos:['necocli','grupo-mochilas'], dur:'Varios días', price:'Consultar',
+      tag:'Color, playa y buena energía.',
+      desc:'Un paraíso del Urabá antioqueño: calles llenas de color, playa, comida de mar y la calidez de su gente.',
+      hl:['Calles llenas de color','Playa y mar Caribe','Gastronomía local'] },
+    { name:'Bahía Málaga y Buenaventura', region:'Pacífico vallecaucano', cat:'playas', photos:['web/ballenas-salto','web/ballenas','buenaventura'], dur:'Fin de semana', price:'Consultar',
+      tag:'Avistamiento de ballenas jorobadas.',
+      desc:'En temporada de ballenas salimos al Pacífico para ver a las jorobadas, uno de los espectáculos naturales más increíbles de Colombia.',
+      hl:['Avistamiento de ballenas en temporada','Recorrido en lancha','Playas del Pacífico'] },
+    { name:'Alta Guajira y Punta Gallinas', region:'La Guajira', cat:'montana', photos:['web/guajira','web/cabovela','guajira'], dur:'5 días, 4 noches', price:'Consultar',
+      tag:'Hasta el punto más al norte de Sudamérica.',
+      desc:'Recorremos las Salinas de Manaure, las dunas de Taroa, el Cabo de la Vela y Punta Gallinas, junto al pueblo Wayuu. Viaje todo incluido.',
+      hl:['Salinas de Manaure y dunas de Taroa','Cabo de la Vela y Punta Gallinas','Cultura del pueblo Wayuu'],
+      inc:['Plan todo incluido','Transporte durante el recorrido','Coordinador de viaje','Hospedaje y alimentación'] },
+    { name:'Desierto de la Tatacoa', region:'Huila', cat:'montana', photos:['web/tatacoa','tatacoa'], dur:'Fin de semana', price:'Consultar',
+      tag:'Laberintos de arena y cielos infinitos.',
+      desc:'Caminamos entre laberintos de arcilla roja y gris, y de noche miramos un cielo lleno de estrellas.',
+      hl:['Desierto rojo y gris','Cielos estrellados','Caminatas guiadas'] },
+    { name:'Mano del Gigante y Paicol', region:'Huila', cat:'montana', photos:['web/huila','huila-cueva'], dur:'Expedición', price:'Consultar',
+      tag:'De la Cueva Caja de Agua al mirador.',
+      desc:'Una expedición épica: de las profundidades de la Cueva Caja de Agua en Paicol al mirador de la Mano del Gigante.',
+      hl:['Cueva Caja de Agua','Mirador Mano del Gigante','Paisajes del Huila'],
+      inc:['Transporte','Ingresos','Guianza','Seguros'] },
+    { name:'San Agustín', region:'Huila', cat:'montana', photos:['web/sanagustin','san-agustin'], dur:'Fin de semana', price:'Consultar',
+      tag:'Historia o adrenalina: tú eliges.',
+      desc:'Estatuas milenarias, el Salto del Mortiño y las cascadas de Los Tres Chorros. Arqueología y naturaleza en un mismo viaje.',
+      hl:['Estatuas de piedra milenarias','Salto del Mortiño','Cascadas de Los Tres Chorros'] },
+    { name:'Volcán Chiles', region:'Nariño', cat:'montana', photos:['web/chiles','volcan-chiles'], dur:'Expedición', price:'Consultar',
+      tag:'Alta montaña para los que buscan reto.',
+      desc:'Detrás de cada paisaje increíble hay un reto. Subimos al Volcán Chiles, en la frontera con Ecuador, entre páramo y niebla.',
+      hl:['Ascenso de alta montaña','Páramo y niebla','Para viajeros con buena condición'] },
+    { name:'Termales de Salinas', region:'Coconuco, Cauca', cat:'descanso', photos:['web/termales','termales'], dur:'Un día', price:'$199.000',
+      tag:'Relájate y renueva tu energía.',
+      desc:'Aguas termales minerales en Coconuco, Cauca. Un día para descansar con circuito de hidroterapia y piscinas termales.',
+      hl:['Circuito de hidroterapia termal','Piscinas termales inoloras','Duchas frías y descanso'],
+      inc:['Transporte terrestre ida y regreso','Ingreso a la reserva','Circuito de hidroterapia y piscinas','Desayuno y almuerzo','Asistencia médica','Coordinador de viaje'] },
+    { name:'Punta Cana 2027', region:'República Dominicana', cat:'internacional', photos:['web/puntacana','punta-cana'], dur:'4 noches', price:'Consultar', from:'Vuelo en grupo',
+      tag:'Despierta frente al mar Caribe.',
+      desc:'Arena blanca, agua turquesa y cero pendientes. Un viaje en grupo con todo resuelto. Cupos limitados.',
+      hl:['Playas de arena blanca','Hotel todo incluido','Viaje en grupo acompañado'],
+      inc:['Vuelos','4 noches en hotel todo incluido','Acompañamiento durante todo el viaje'] }
+  ];
+
+  /* Header + mobile menu */
+  const hdr = $('#hdr');
+  const onScroll = () => hdr.classList.toggle('solid', scrollY > 60 || $('#mnav').classList.contains('open'));
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const burger = $('#burger'), mnav = $('#mnav');
+  burger.addEventListener('click', () => { const o = mnav.classList.toggle('open'); burger.setAttribute('aria-expanded', o); onScroll(); });
+  mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mnav.classList.remove('open'); burger.setAttribute('aria-expanded', false); onScroll(); }));
+
+  /* Hero slideshow */
+  const slides = [...document.querySelectorAll('#slides img')];
+  const bars = $('#bars'), sName = $('#slideName');
+  let si = 0, timer;
+  slides.forEach((s, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Ver ' + s.dataset.name); b.addEventListener('click', () => go(i)); bars.appendChild(b); });
+  function go(i) {
+    slides[si].classList.remove('on'); bars.children[si].classList.remove('on');
+    si = (i + slides.length) % slides.length;
+    slides[si].classList.add('on');
+    const b = bars.children[si]; void b.offsetWidth; b.classList.add('on');
+    sName.textContent = slides[si].dataset.name; sName.style.animation = 'none'; void sName.offsetWidth; sName.style.animation = '';
+    clearTimeout(timer); if (!reduce) timer = setTimeout(() => go(si + 1), 6000);
+  }
+  bars.children[0].classList.add('on');
+  if (!reduce) timer = setTimeout(() => go(1), 6000);
+
+  /* Marquee */
+  const items = D.map(d => `<span>${d.name}<i class="mk"></i></span>`).join('');
+  $('#marquee').innerHTML = items + items;
+
+  /* Filters + cards */
+  const grid = $('#grid'), filters = $('#filters');
+  Object.entries(CATS).forEach(([k, c]) => {
+    const n = k === 'todos' ? D.length : D.filter(d => d.cat === k).length;
+    const b = document.createElement('button');
+    b.className = 'chip'; b.type = 'button'; b.dataset.cat = k;
+    b.setAttribute('aria-pressed', k === 'todos');
+    b.innerHTML = `${ico(c.icon)}${c.label}<small>${n}</small>`;
+    b.addEventListener('click', () => filter(k));
+    filters.appendChild(b);
+  });
+  D.forEach((d, i) => {
+    const c = document.createElement('button');
+    c.className = 'card rv'; c.type = 'button'; c.dataset.cat = d.cat; c.style.setProperty('--i', i % 3);
+    c.setAttribute('aria-label', `Ver plan: ${d.name}`);
+    c.innerHTML = `
+      <div class="card-media">
+        <img src="img/${d.photos[0]}.jpg" alt="${d.name}, ${d.region}" loading="lazy" width="640" height="544">
+        <span class="badge">${ico(CATS[d.cat].icon)}${CATS[d.cat].label}</span>
+        <span class="region">${ico('pin')}${d.region}</span>
+        ${d.price !== 'Consultar' ? `<span class="price-tag">${d.price}</span>` : ''}
+      </div>
+      <div class="card-body">
+        <h3>${d.name}</h3>
+        <p>${d.tag}</p>
+        <div class="card-meta"><span>${ico('clock')}${d.dur}</span><span>${ico(d.from ? 'plane' : 'bus')}${d.from || 'Desde Cali'}</span></div>
+        <div class="card-cta">Ver plan <span class="go">${ico('arrow')}</span></div>
+      </div>`;
+    c.addEventListener('click', () => openModal(i));
+    grid.appendChild(c);
+  });
+  function filter(k) {
+    filters.querySelectorAll('.chip').forEach(b => b.setAttribute('aria-pressed', b.dataset.cat === k));
+    let n = 0;
+    grid.querySelectorAll('.card').forEach(c => {
+      const show = k === 'todos' || c.dataset.cat === k;
+      c.classList.toggle('hide', !show);
+      c.classList.remove('enter');
+      if (show) { c.classList.add('in'); c.style.setProperty('--i', n++); void c.offsetWidth; c.classList.add('enter'); }
+    });
+  }
+  document.addEventListener('click', e => { const j = e.target.closest('[data-jump]'); if (j) filter(j.dataset.jump); });
+  $('#footDest').innerHTML = Object.entries(CATS).filter(([k]) => k !== 'todos').map(([k, c]) => `<li><a href="#destinos" data-jump="${k}">${c.label}</a></li>`).join('');
+
+  /* Modal */
+  const pick = (t, rules, def) => { t = t.toLowerCase(); const r = rules.find(([re]) => re.test(t)); return r ? r[1] : def; };
+  const hlIcon = t => pick(t, [
+    [/ballena/, 'fish'], [/avistamiento/, 'bino'], [/lancha|navegaci|navega/, 'boat'], [/atardecer/, 'sunset'],
+    [/cielo|estrella/, 'moon'], [/cascada|salto|chorro|embudo/, 'drop'], [/termal|hidroterapia|piscina|ducha/, 'flame'],
+    [/snorkel|playa|caribe|arena|isla|mar /, 'palm'], [/río|rio|agua|pozo|nado|tubing|cañon|cañón/, 'waves'],
+    [/desierto|duna|salina/, 'sun'], [/caminata|sendero|ascenso/, 'foot'], [/cueva|mirador|volc|alta montaña|páramo|niebla/, 'mtn'],
+    [/selva|bosque|naturaleza/, 'tree'], [/estatua|arqueol|cultura|wayuu|calles|pueblo|frontera|sapzurro/, 'landmark'],
+    [/gastronom|comida/, 'food'], [/grupo|acompañ|principiante|condición/, 'users'], [/hotel/, 'bed']
+  ], 'star');
+  const incIcon = t => pick(t, [
+    [/vuelo/, 'plane'], [/transporte/, 'bus'], [/coordinador|guía|guianza|acompañamiento/, 'compass'],
+    [/ingreso/, 'ticket'], [/seguro|asistencia/, 'shield'], [/desayuno|almuerzo|alimentaci/, 'food'],
+    [/hospedaje|hotel|noches/, 'bed'], [/circuito|piscina/, 'flame'], [/todo incluido/, 'star']
+  ], 'check');
+  const modal = $('#modal');
+  let cur = 0;
+  function fill(i) {
+    cur = (i + D.length) % D.length;
+    const d = D[cur], img = $('#m-img');
+    img.src = `img/${d.photos[0]}.jpg`; img.alt = d.name;
+    img.style.animation = 'none'; void img.offsetWidth; img.style.animation = '';
+    $('#m-cat').innerHTML = ico(CATS[d.cat].icon) + CATS[d.cat].label;
+    $('#m-title').textContent = d.name;
+    $('#m-region').textContent = d.region + (d.cat === 'internacional' ? '' : ', Colombia');
+    $('#m-desc').textContent = d.desc;
+    $('#m-dur').textContent = d.dur;
+    $('#m-from').textContent = d.from || 'Desde Cali';
+    $('#m-price').textContent = d.price;
+    $('#m-hl').innerHTML = d.hl.map(h => `<li>${ico(hlIcon(h))}${h}</li>`).join('');
+    $('#m-inc').innerHTML = (d.inc || BASE_INC).map(h => `<li>${ico(incIcon(h))}${h}</li>`).join('');
+    const v = VIDEOS[d.name], vbox = $('#m-video'), vcap = $('#m-vcap');
+    vbox.innerHTML = v ? `<iframe src="https://www.youtube-nocookie.com/embed/${v.id}?autoplay=${reduce ? 0 : 1}&mute=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=${v.id}" title="Video: ${d.name}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe>` : '';
+    vcap.innerHTML = v ? `${ico('camera')}<span>Video de <b>${v.author}</b> en YouTube</span>` : `${ico('camera')}<span>Desliza para ver más fotos</span>`;
+    const pics = [...new Set([...d.photos, ...(d.more || [])])];
+    const strip = $('#m-strip');
+    strip.innerHTML = pics.map((p, k) => `<button type="button" class="m-shot" aria-label="Ampliar foto ${k + 1} de ${d.name}"><img src="img/${p}.jpg" alt="${d.name}: foto ${k + 1}" loading="lazy">${p.startsWith('web/') ? '' : '<span>Aventureros</span>'}</button>`).join('');
+    strip.scrollLeft = 0;
+    strip.querySelectorAll('.m-shot').forEach((b, k) => b.addEventListener('click', () => {
+      $('#lb-img').src = `img/${pics[k]}.jpg`; $('#lb-img').alt = d.name; $('#lb-cap').textContent = d.name; $('#lb').showModal();
+    }));
+    stripBtns(); setTimeout(stripBtns, 300);
+    modal.querySelector('.m-body').scrollTop = 0; modal.querySelector('.modal').scrollTop = 0;
+  }
+  function stripBtns() { const st = $('#m-strip'); $('#m-sl').disabled = st.scrollLeft < 8; $('#m-sr').disabled = st.scrollLeft + st.clientWidth >= st.scrollWidth - 8; }
+  $('#m-strip').addEventListener('scroll', stripBtns, { passive: true });
+  $('#m-sl').addEventListener('click', () => { const st = $('#m-strip'); st.scrollBy({ left: -st.clientWidth * .8 }); });
+  $('#m-sr').addEventListener('click', () => { const st = $('#m-strip'); st.scrollBy({ left: st.clientWidth * .8 }); });
+  modal.addEventListener('close', () => { $('#m-video').innerHTML = ''; });
+  function openModal(i) { fill(i); modal.showModal(); document.body.style.overflow = 'hidden'; requestAnimationFrame(stripBtns); setTimeout(stripBtns, 400); }
+  window.openDestByName = name => { const i = D.findIndex(d => d.name === name); if (i > -1) openModal(i); };
+  document.querySelectorAll('dialog').forEach(dl => {
+    dl.addEventListener('close', () => { document.body.style.overflow = ''; });
+    dl.addEventListener('click', e => { if (e.target.hasAttribute('data-close') || e.target.closest('button[data-close]')) dl.close(); });
+  });
+  $('#m-ask').addEventListener('click', () => { modal.close(); window.askAbout && window.askAbout(D[cur].name); });
+  $('#m-map').addEventListener('click', () => { const n = D[cur].name; modal.close(); const m = document.getElementById('mapa'); m.scrollIntoView({ behavior: 'smooth' }); setTimeout(() => window.focusPlaceByName && window.focusPlaceByName(n), 700); });
+  $('#m-prev').addEventListener('click', () => fill(cur - 1));
+  $('#m-next').addEventListener('click', () => fill(cur + 1));
+  modal.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') fill(cur - 1); if (e.key === 'ArrowRight') fill(cur + 1); });
+
+  /* Gallery + lightbox */
+  const G = [['tayrona-atardecer','Atardecer en el Tayrona'],['grupo-capurgana','El grupo en Capurganá'],['villacarmelo','Villacarmelo'],['cascada-grupo','Cascada en grupo'],['tayrona-cabo','Cabo San Juan, Tayrona'],['necocli','Necoclí'],['grupo-mochilas','Comunidad Aventureros'],['dapa','Cascada en Dapa'],['norcasia','Saltos en Norcasia'],['tatacoa','Tatacoa'],['san-agustin','San Agustín'],['zabaletas','Zabaletas']];
+  const gal = $('#gallery'), lb = $('#lb');
+  G.forEach(([f, cap], i) => {
+    const b = document.createElement('button');
+    b.className = 'g-item rv'; b.type = 'button'; b.style.setProperty('--i', i % 4);
+    b.setAttribute('aria-label', 'Ampliar foto: ' + cap);
+    b.innerHTML = `<img src="img/${f}.jpg" alt="${cap}" loading="lazy"><span>${ico('pin')}${cap}</span>`;
+    b.addEventListener('click', () => { $('#lb-img').src = `img/${f}.jpg`; $('#lb-img').alt = cap; $('#lb-cap').textContent = cap; lb.showModal(); document.body.style.overflow = 'hidden'; });
+    gal.appendChild(b);
+  });
+
+  /* Planner */
+  const sel = $('#f-dest'), month = $('#f-month'), out = $('#f-people'), preview = $('#f-preview');
+  sel.add(new Option('Quiero ver todas las salidas', ''));
+  D.forEach(d => sel.add(new Option(d.name, d.name)));
+  const names = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const now = new Date();
+  month.add(new Option('Lo antes posible', ''));
+  for (let k = 0; k < 12; k++) { const d = new Date(now.getFullYear(), now.getMonth() + k, 1); const l = names[d.getMonth()] + ' ' + d.getFullYear(); month.add(new Option(l[0].toUpperCase() + l.slice(1), l)); }
+  let people = 2;
+  const CONTACT_EMAIL = ''; // correo del cliente: al definirlo aparece el botón "Enviar por correo"
+  const nameIn = $('#f-name'), noteIn = $('#f-note');
+  function compose() {
+    const n = nameIn.value.trim();
+    let m = 'Hola Aventureros' + (n ? ', soy ' + n : '') + '. ';
+    m += sel.value ? 'Me interesa el plan a ' + sel.value + '.' : 'Quiero conocer las próximas salidas.';
+    m += '\nSomos ' + people + (people === 1 ? ' persona.' : ' personas.');
+    m += month.value ? '\nNos gustaría viajar en ' + month.value + '.' : '\nPodemos viajar en la próxima fecha disponible.';
+    if (noteIn.value.trim()) m += '\n' + noteIn.value.trim();
+    m += '\n¿Me cuentan fechas, tarifa y qué incluye?';
+    preview.textContent = m; return m;
+  }
+  document.querySelectorAll('[data-step]').forEach(b => b.addEventListener('click', () => { people = Math.min(40, Math.max(1, people + +b.dataset.step)); out.textContent = people; compose(); }));
+  [sel, month].forEach(x => x.addEventListener('change', compose));
+  [nameIn, noteIn].forEach(x => x.addEventListener('input', compose));
+  $('#plan').addEventListener('submit', e => { e.preventDefault(); window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(compose()), '_blank', 'noopener'); });
+  const mailBtn = $('#f-mail');
+  if (CONTACT_EMAIL) {
+    mailBtn.hidden = false;
+    mailBtn.addEventListener('click', () => { location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Información de viaje' + (sel.value ? ': ' + sel.value : '')) + '&body=' + encodeURIComponent(compose()); });
+  }
+  window.askAbout = name => { sel.value = name; compose(); document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => nameIn.focus({ preventScroll: true }), 800); };
+  compose();
+
+  /* Reveal + counters */
+  const fmt = n => n.toLocaleString('es-CO');
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in'); io.unobserve(e.target);
+    e.target.querySelectorAll('[data-count]').forEach(el => {
+      const end = +el.dataset.count, pre = el.dataset.prefix || '';
+      if (reduce) { el.textContent = pre + fmt(end); return; }
+      const t0 = performance.now(), dur = 1400;
+      const step = t => { const p = Math.min(1, (t - t0) / dur); el.textContent = pre + fmt(Math.round(end * (1 - Math.pow(1 - p, 3)))); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+  }), { rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+  /* FAB greeting */
+  const fab = $('#fab');
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(() => {
+  const wrap = document.getElementById('globeWrap'), el = document.getElementById('globe');
+  const PLACES = [
+    { name:'Cali', region:'Punto de salida', lat:3.4516, lng:-76.5320, home:true, img:'grupo-mochilas' },
+    { name:'Cascada La Miel, Dapa', label:'Dapa', region:'Valle del Cauca', lat:3.5600, lng:-76.5620, img:'dapa' },
+    { name:'Villacarmelo', region:'Valle del Cauca', lat:3.3790, lng:-76.6330, img:'villacarmelo' },
+    { name:'Zabaletas', region:'Valle del Cauca', lat:3.7350, lng:-76.8700, img:'zabaletas' },
+    { name:'Embudo de Agua Clara y Cascada La Tortugaña', label:'Cascada La Tortugaña', region:'Valle del Cauca', lat:3.8300, lng:-76.9300, img:'cascada-grupo' },
+    { name:'Bahía Málaga y Buenaventura', label:'Bahía Málaga', region:'Pacífico', lat:3.9700, lng:-77.3300, img:'web/ballenas' },
+    { name:'Termales de Salinas', label:'Termales de Coconuco', region:'Cauca', lat:2.3300, lng:-76.4900, img:'web/termales' },
+    { name:'San Agustín', region:'Huila', lat:1.8833, lng:-76.2667, img:'web/sanagustin' },
+    { name:'Mano del Gigante y Paicol', label:'Mano del Gigante', region:'Huila', lat:2.3870, lng:-75.5450, img:'web/huila' },
+    { name:'Desierto de la Tatacoa', label:'Tatacoa', region:'Huila', lat:3.2333, lng:-75.1667, img:'web/tatacoa' },
+    { name:'Volcán Chiles', region:'Nariño', lat:0.8170, lng:-77.9350, img:'web/chiles' },
+    { name:'La Macarena', label:'Caño Cristales', region:'Meta', lat:2.2667, lng:-73.7833, img:'web/macarena' },
+    { name:'Norcasia y Río La Miel', label:'Norcasia', region:'Caldas', lat:5.5747, lng:-74.8889, img:'web/norcasia' },
+    { name:'Río Claro', region:'Antioquia', lat:5.9000, lng:-74.8600, img:'web/rioclaro' },
+    { name:'Necoclí', region:'Antioquia', lat:8.4250, lng:-76.7850, img:'necocli' },
+    { name:'Capurganá y Sapzurro', label:'Capurganá', region:'Chocó', lat:8.6333, lng:-77.3500, img:'web/capurgana' },
+    { name:'Isla Fuerte', region:'Bolívar', lat:9.3900, lng:-76.1800, img:'web/islafuerte' },
+    { name:'Parque Tayrona', region:'Magdalena', lat:11.3100, lng:-74.0700, img:'web/tayrona2' },
+    { name:'Alta Guajira y Punta Gallinas', label:'Punta Gallinas', region:'La Guajira', lat:12.4580, lng:-71.6680, img:'web/guajira' },
+    { name:'Punta Cana 2027', label:'Punta Cana', region:'República Dominicana', lat:18.5820, lng:-68.4050, img:'web/puntacana' }
+  ];
+  const HOME = PLACES[0];
+  const GROUPS = [['Salida',['Punto de salida']],['Valle y Pacífico',['Valle del Cauca','Pacífico']],['Sur y centro',['Cauca','Huila','Nariño','Meta']],['Antioquia y Caldas',['Caldas','Antioquia']],['Caribe',['Chocó','Bolívar','Magdalena','La Guajira']],['Internacional',['República Dominicana']]];
+
+  /* side list (works even without WebGL) */
+  const list = document.getElementById('placeList');
+  GROUPS.forEach(([g, regs]) => {
+    const items = PLACES.filter(p => regs.includes(p.region));
+    if (!items.length) return;
+    list.insertAdjacentHTML('beforeend', `<li class="grp">${g}</li>`);
+    items.forEach(p => {
+      const li = document.createElement('li');
+      li.innerHTML = `<button type="button" class="place-btn"><img src="img/${p.img}.jpg" alt="${p.label || p.name}" loading="lazy"><span><b>${p.label || p.name}</b><small>${p.region}</small></span><svg class="ico"><use href="#i-arrow"/></svg></button>`;
+      li.querySelector('button').addEventListener('click', e => { focusPlace(p); list.querySelectorAll('.place-btn').forEach(b => b.classList.toggle('on', b === e.currentTarget)); });
+      list.appendChild(li);
+    });
+  });
+
+  if (!window.L) { wrap.classList.add('nogl'); return; }
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ICON = { 'Punto de salida':'logo' };
+  const iconFor = p => {
+    const n = (p.name + ' ' + p.region).toLowerCase();
+    if (p.home) return null;
+    if (/ballena/.test(n)) return 'fish';
+    if (/cascada|tortuga|villacarmelo|dapa/.test(n)) return 'drop';
+    if (/termal/.test(n)) return 'flame';
+    if (/punta cana/.test(n)) return 'plane';
+    if (/tayrona|capurg|isla|necocl|guajira/.test(n)) return 'palm';
+    if (/tatacoa|chiles|gigante|agust/.test(n)) return 'mtn';
+    return 'waves';
+  };
+  const LEFT = ['Villacarmelo', 'Bahía Málaga y Buenaventura', 'Zabaletas', 'Embudo de Agua Clara y Cascada La Tortugaña', 'Volcán Chiles', 'Capurganá y Sapzurro', 'Necoclí'];
+
+  const map = L.map(el, { zoomControl: false, scrollWheelZoom: false, worldCopyJump: true, minZoom: 3, maxZoom: 12 });
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 18,
+    attribution: 'Mapa &copy; <a href="https://www.esri.com" target="_blank" rel="noopener">Esri</a> y colaboradores'
+  }).addTo(map);
+  el.addEventListener('click', () => map.scrollWheelZoom.enable(), { once: true });
+
+  /* curved routes from Cali */
+  const curve = (a, b) => {
+    const pts = [], mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, dx = b[1] - a[1], dy = b[0] - a[0];
+    const c = [mx - dx * 0.18, my + dy * 0.18];
+    for (let t = 0; t <= 1.0001; t += 0.05) pts.push([(1 - t) ** 2 * a[0] + 2 * (1 - t) * t * c[0] + t * t * b[0], (1 - t) ** 2 * a[1] + 2 * (1 - t) * t * c[1] + t * t * b[1]]);
+    return pts;
+  };
+  PLACES.filter(p => !p.home).forEach(p => L.polyline(curve([HOME.lat, HOME.lng], [p.lat, p.lng]), { color: '#e01b1f', weight: 2.2, opacity: .55, className: 'route', interactive: false }).addTo(map));
+
+  const markers = PLACES.map(p => {
+    const ic = iconFor(p);
+    const html = `<div class="pin${p.home ? ' home' : ''}${LEFT.includes(p.name) ? ' left' : ''}"><span class="pin-dot">${p.home ? '<i class="mk"></i>' : `<svg class="ico"><use href="#i-${ic}"/></svg>`}</span><span class="pin-label">${p.label || p.name}</span></div>`;
+    const m = L.marker([p.lat, p.lng], { icon: L.divIcon({ html, className: '', iconSize: [0, 0] }), riseOnHover: true, zIndexOffset: p.home ? 1000 : 0, keyboard: true, title: p.label || p.name, alt: p.label || p.name }).addTo(map);
+    const pop = `<div><img src="img/${p.img}.jpg" alt="${p.label || p.name}, ${p.region}"><div class="pc"><b>${p.label || p.name}</b><small>${p.region}</small>${p.home ? '<small style="margin:0">Todas nuestras salidas parten de aquí.</small>' : '<button type="button">Ver el plan</button>'}</div></div>`;
+    m.bindPopup(pop, { className: 'map-pop', closeButton: true, autoPanPadding: [40, 40], offset: [0, -14] });
+    m.on('popupopen', e => {
+      const btn = e.popup.getElement().querySelector('button');
+      if (btn) btn.addEventListener('click', () => window.openDestByName && window.openDestByName(p.name));
+      document.querySelectorAll('.leaflet-marker-icon.active').forEach(x => x.classList.remove('active'));
+      m.getElement() && m.getElement().classList.add('active');
+    });
+    m.on('popupclose', () => m.getElement() && m.getElement().classList.remove('active'));
+    p.marker = m;
+    return m;
+  });
+
+  /* hide overlapping labels (Cali first, then list order) */
+  const declutter = () => {
+    const placed = [];
+    PLACES.forEach(p => {
+      const node = p.marker.getElement(); if (!node) return;
+      const pin = node.querySelector('.pin'); pin.classList.remove('clash');
+      const r = node.querySelector('.pin-label').getBoundingClientRect();
+      const d = node.querySelector('.pin-dot').getBoundingClientRect();
+      const hit = placed.some(q => !(r.right + 3 < q.left || r.left - 3 > q.right || r.bottom + 2 < q.top || r.top - 2 > q.bottom));
+      if (hit && !node.classList.contains('active')) pin.classList.add('clash'); else placed.push(r);
+      placed.push(d);
+    });
+  };
+  map.on('zoomend moveend', declutter);
+
+  const B = pts => L.latLngBounds(pts.map(p => [p.lat, p.lng]));
+  const ZONES = {
+    all: () => B(PLACES),
+    col: () => B(PLACES.filter(p => p.region !== 'República Dominicana')),
+    valle: () => B(PLACES.filter(p => ['Punto de salida', 'Valle del Cauca', 'Pacífico'].includes(p.region))),
+    caribe: () => B(PLACES.filter(p => ['Chocó', 'Bolívar', 'Magdalena', 'La Guajira', 'República Dominicana'].includes(p.region)))
+  };
+  const zoneBtns = document.querySelectorAll('[data-zone]');
+  const goZone = z => { map.closePopup(); map.flyToBounds(ZONES[z](), { paddingTopLeft: [170, 80], paddingBottomRight: [100, 70], duration: reduce ? 0 : 1.1, maxZoom: 10 }); zoneBtns.forEach(b => b.classList.toggle('on', b.dataset.zone === z)); };
+  zoneBtns.forEach(b => b.addEventListener('click', () => goZone(b.dataset.zone)));
+
+  const size = () => { map.invalidateSize(); };
+  new ResizeObserver(size).observe(wrap);
+  map.fitBounds(ZONES.col(), { paddingTopLeft: [170, 80], paddingBottomRight: [100, 70] });
+  setTimeout(declutter, 300);
+
+  const focusPlace = p => {
+    zoneBtns.forEach(b => b.classList.remove('on'));
+    map.flyTo([p.lat, p.lng], p.region === 'República Dominicana' ? 8 : 9, { duration: reduce ? 0 : 1.2 });
+    map.once('moveend', () => p.marker.openPopup());
+  };
+  window.focusPlace = focusPlace;
+  window.focusPlaceByName = n => { const p = PLACES.find(x => x.name === n); if (p) focusPlace(p); };
+  document.getElementById('gIn').addEventListener('click', () => map.zoomIn());
+  document.getElementById('gOut').addEventListener('click', () => map.zoomOut());
+  document.getElementById('gHome').addEventListener('click', () => goZone('col'));
+  zoneBtns.forEach(b => b.classList.toggle('on', b.dataset.zone === 'col'));
+})();
+</script>
+<script>
+(() => {
+  const b = document.getElementById('themeBtn'), root = document.documentElement;
+  const label = () => b.setAttribute('aria-label', root.dataset.theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+  label();
+  b.addEventListener('click', () => {
+    root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem('av-theme', root.dataset.theme); } catch (e) {}
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', root.dataset.theme === 'dark' ? '#0c1815' : '#fe2f30');
+    label();
+  });
+})();
+</script>
+
+
+</body>
+</html>
